@@ -60,6 +60,7 @@ if (isset($_ENV['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   => '/sidemik',
+        'index_file' => FALSE
 ));
 
 /**
@@ -94,7 +95,7 @@ Kohana::modules(array(
  */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'welcome',
+		'controller' => 'front',
 		'action'     => 'index',
 	));
 
