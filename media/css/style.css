@@ -1,0 +1,50 @@
+/* 
+    Document   : style
+    Created on : Nov 11, 2010, 10:54:36 PM
+    Author     : user
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+#wrap {
+    width: 1000px;
+    margin: 30px auto;
+}
+
+#header {
+    width: 1000px;
+    height: 150px;
+}
+
+#middle {
+    width: 1000px;
+}
+
+#navigator {
+    width: 200px;
+    height: 300px;
+    float: left;
+}
+
+#content {
+    float: left;
+    width: 700px;
+}
+
+#footer {
+    width: 1000px;
+}
+
+.clear {
+    clear: both;
+}
+
