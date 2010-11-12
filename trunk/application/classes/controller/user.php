@@ -20,6 +20,13 @@ class Controller_User extends Controller_Website {
 
     public function action_add() {
         $this->template->title = "Add User";
+        if (isset($_POST['username'])) {
+            $user = new Model_User();
+            
+            $user->username = $_POST['username'];
+            $user->password = $_POST['password'];
+            $user->save();
+        }
     }
 
     public function action_edit() {
