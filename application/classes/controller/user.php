@@ -29,8 +29,14 @@ class Controller_User extends Controller_Website {
         }
     }
 
-    public function action_edit() {
+    public function action_edit($id) {
         $this->template->title = "Edit User";
+        $user = new Model_User($id);
+
+        $user->password = $_POST['password'];
+        $user->save();
+
+        $this->template->content->user = $user;
     }
 
     public function action_delete() {
