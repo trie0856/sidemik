@@ -18,8 +18,8 @@ return array
 			 * Ports and sockets may be appended to the hostname.
 			 */
 			'hostname'   => 'localhost',
-			'username'   => 'root',
-			'password'   => 'root',
+			'username'   => 'sidemik',
+			'password'   => 'sidemik',
 			'persistent' => FALSE,
 			'database'   => 'sidemik',
 		),
