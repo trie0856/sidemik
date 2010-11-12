@@ -14,4 +14,4 @@ class Controller_Front extends Controller_Website {
         $this->template->title = "Front";
     }
 
-} // End Welcome
+} // End Front

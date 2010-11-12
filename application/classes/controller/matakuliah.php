@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Mahasiswa extends Controller_Website {
+class Controller_Matakuliah extends Controller_Website {
     
     public function before() {
         parent::before();
@@ -11,23 +11,23 @@ class Controller_Mahasiswa extends Controller_Website {
     }
 
     public function action_index() {
-        $this->template->title = "Mahasiswa";
+        $this->template->title = "Matakuliah";
     }
 
     public function action_list() {
-        $this->template->title = "List Mahasiswa";
+        $this->template->title = "List Matakuliah";
     }
 
     public function action_add() {
-        $this->template->title = "Add Mahasiswa";
+        $this->template->title = "Add Matakuliah";
     }
 
     public function action_edit() {
-        $this->template->title = "Edit Mahasiswa";
+        $this->template->title = "Edit Matakuliah";
     }
 
     public function action_delete() {
-        $this->template->title = "Delete Mahasiswa";
+        $this->template->title = "Delete Matakuliah";
     }
 
-} // End Mahasiswa
+} // End Matakuliah

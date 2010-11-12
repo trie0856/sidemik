@@ -18,30 +18,36 @@ root {
 #wrap {
     width: 1000px;
     margin: 30px auto;
+    border: solid black 1px;
 }
 
 #header {
     width: 1000px;
     height: 150px;
+    border: solid black 1px;
 }
 
 #middle {
     width: 1000px;
+    border: solid black 1px;
 }
 
 #navigator {
     width: 200px;
     height: 300px;
     float: left;
+    border: solid black 1px;
 }
 
 #content {
     float: left;
-    width: 700px;
+    width: 796px;
+    border: solid black 1px;
 }
 
 #footer {
     width: 1000px;
+    border: solid black 1px;
 }
 
 .clear {
