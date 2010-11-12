@@ -6,8 +6,8 @@ add
         <td><?php echo Form::input('nim');?></td>
     </tr>
     <tr>
-        <td><?php echo Form::label('username', 'Username')?></td>
-        <td><?php echo Form::input('username');?></td>
+        <td><?php echo Form::label('password', 'Password')?></td>
+        <td><?php echo Form::input('password');?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('nama', 'Nama')?></td>
@@ -16,6 +16,10 @@ add
     <tr>
         <td><?php echo Form::label('tempat_lahir', 'Tempat Lahir')?></td>
         <td><?php echo Form::input('tempat_lahir');?></td>
+    </tr>
+    <tr>
+        <td><?php echo Form::label('tanggal_lahir', 'Tanggal Lahir')?></td>
+        <td><?php echo Form::input('tanggal_lahir');?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('email', 'Email');?></td>
