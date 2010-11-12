@@ -39,7 +39,7 @@ class Controller_User extends Controller_Website {
         $this->template->content->user = $user;
     }
 
-    public function action_delete() {
+    public function action_delete($id) {
         $this->template->title = "Delete User";
     }
 
