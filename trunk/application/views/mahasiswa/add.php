@@ -43,8 +43,19 @@ add
         <td><?php  echo Form::input('telp_rumah');?></td>
     </tr>
     <tr>
+        <?php
+            $curyear = date('Y');
+            $tahun_masuks = array();
+            for ($i = 5; $i >= 0; --$i) {
+                $tahun_masuks[$curyear-$i] = $curyear-$i;
+            }
+
+            for ($i = 0; $i <= 5; ++$i) {
+                $tahun_masuks[$curyear+$i] = $curyear+$i;
+            }
+        ?>
         <td><?php echo Form::label('tahun_masuk', 'Tahun Masuk')?></td>
-        <td><?php echo Form::input('tahun_masuk');?></td>
+        <td><?php echo Form::select('tahun_masuk', $tahun_masuks, $curyear);?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('status_kelulusan', 'Status Kelulusan')?></td>

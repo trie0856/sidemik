@@ -14,7 +14,7 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
         $this->template->title = "Pengambilan matakuliah";
     }
 
-    public function action_ambil() {
+    public function action_ambil($nim = NULL) {
         $this->template->title = "Ambil matakuliah";
     }
 
@@ -22,7 +22,7 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
         $this->template->title = "Transkrip mahasiswa";
     }
 
-    public function action_inputnilai() {
+    public function action_inputnilai($kode_mata_kuliah = NULL) {
         $this->template->title = "inputnilai mahasiswa";
     }
 } // End Pengambilan matakuliah
