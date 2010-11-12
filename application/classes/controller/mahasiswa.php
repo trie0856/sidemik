@@ -20,10 +20,20 @@ class Controller_Mahasiswa extends Controller_Website {
 
     public function action_add() {
         $this->template->title = "Add Mahasiswa";
+        $nim = "";
+        $username = "";
+        $nama = "";
+        $tempat_lahir = "";
+        $tanggal_lahir = "";
     }
 
     public function action_edit() {
         $this->template->title = "Edit Mahasiswa";
+        $nim = "";
+        $username = "";
+        $nama = "";
+        $tempat_lahir = "";
+        $tanggal_lahir = "";
     }
 
     public function action_delete() {
