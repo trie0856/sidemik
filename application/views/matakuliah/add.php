@@ -1,3 +1,7 @@
+<?php
+    
+?>
+
 add
 <?php echo Form::open(NULL, array('method'=>'post'));?>
 <table>
@@ -8,6 +12,10 @@ add
     <tr>
         <td><?php echo Form::label('nama', 'Nama Mata Kuliah')?></td>
         <td><?php echo Form::input('nama');?></td>
+    </tr>
+    <tr>
+        <td><?php echo Form::label('jumlah_sks', 'Jumlah SKS')?></td>
+        <td><?php echo Form::select('jumlah_sks', $select_jumlah_sks);?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('deskripsi', 'Deskripsi')?></td>
