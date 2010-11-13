@@ -14,6 +14,12 @@ class Controller_Mahasiswa extends Controller_Website {
         $this->template->title = "Mahasiswa";
     }
 
+    public function action_profil($nim) {
+        $this->template->title = "Profil Mahasiswa";
+        $mahasiswa = new Model_Mahasiswa($nim);
+        $this->template->content->mahasiswa = $mahasiswa;
+    }
+
     public function action_list() {
         $this->template->title = "List Mahasiswa";
 
