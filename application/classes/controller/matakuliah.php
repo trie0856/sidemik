@@ -38,8 +38,9 @@ class Controller_Matakuliah extends Controller_Website {
         $this->template->title = "Edit Matakuliah";
 
         $matakuliah = new Model_Matakuliah($kode);
-
-        if (isset ($_POST['kode'])) {
+        $this->template->content->matakuliah = $matakuliah;
+        
+        if (isset ($_POST['nama'])) {
             $matakuliah->nama = $_POST['nama'];
             $matakuliah->deskripsi = $_POST['deskripsi'];
             $matakuliah->tingkat = $_POST['tingkat'];
@@ -47,12 +48,13 @@ class Controller_Matakuliah extends Controller_Website {
 
             $matakuliah->save();
         }
-        
-        $this->template->content->matakuliah = $matakuliah;
     }
 
-    public function action_delete() {
+    public function action_delete($kode) {
         $this->template->title = "Delete Matakuliah";
+
+        $matakuliah = new Model_Matakuliah($kode);
+        $matakuliah->delete();
     }
 
 } // End Matakuliah
