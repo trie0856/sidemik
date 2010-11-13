@@ -16,7 +16,7 @@ list
             <tr>
                 <td><?php echo $no?></td>
                 <td><?php echo $mahasiswa->nim?></td>
-                <td><?php echo $mahasiswa->nama?></td>
+                <td><?php echo Html::anchor("/mahasiswa/profil/$mahasiswa->nim",$mahasiswa->nama);?></td>
                 <td><?php echo Html::anchor("/mahasiswa/edit/$mahasiswa->nim",'Edit');?></td>
             </tr>
         <?php
