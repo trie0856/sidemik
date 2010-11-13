@@ -33,9 +33,10 @@ class Controller_User extends Controller_Website {
         $this->template->title = "Edit User";
         $user = new Model_User($id);
 
-        $user->password = $_POST['password'];
-        $user->save();
-
+        if (isset($_POST['password'])) {
+            $user->password = $_POST['password'];
+            $user->save();
+        }
         $this->template->content->user = $user;
     }
 

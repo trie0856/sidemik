@@ -7,7 +7,11 @@ edit
     </tr>
     <tr>
         <td><?php echo Form::label('password', 'Password')?></td>
-        <td><?php echo Form::input('password', $user->password);?></td>
+        <td><?php echo Form::input('password');?></td>
+    </tr>
+    <tr>
+        <td><?php echo Form::label('retype_password', 'Konfirmasi Password')?></td>
+        <td><?php echo Form::input('retype_password');?></td>
     </tr>
     <tr>
         <td><?php echo Form::button('submit', 'Edit')?></td>
