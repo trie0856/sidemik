@@ -2,8 +2,8 @@ edit
 <?php echo Form::open(NULL, array('method'=>'post'));?>
 <table>
     <tr>
-        <td><?php echo Form::label('kode', 'Kode')?></td>
-        <td><?php echo Form::input('kode', $matakuliah->kode);?></td>
+        <td><?php echo 'Kode';?></td>
+        <td><?php echo $matakuliah->kode;?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('nama', 'Nama Mata Kuliah')?></td>
@@ -27,7 +27,7 @@ edit
         </td>
     </tr>
     <tr>
-        <td><?php echo Form::button('submit', 'Tambah')?></td>
+        <td><?php echo Form::button('edit', 'Ubah')?></td>
         <td></td>
     </tr>
 </table>
