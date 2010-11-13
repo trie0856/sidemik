@@ -58,11 +58,7 @@ add
         <td><?php echo Form::select('tahun_masuk', $tahun_masuks, $curyear);?></td>
     </tr>
     <tr>
-        <td><?php echo Form::label('status_kelulusan', 'Status Kelulusan')?></td>
-        <td><?php echo Form::input('status_kelulusan');?></td>
-    </tr>
-    <tr>
-        <td><?php echo Form::button('submit', 'Tambah')?></td>
+        <td><?php echo Form::button('tambah', 'Tambah')?></td>
         <td></td>
     </tr>
 </table>

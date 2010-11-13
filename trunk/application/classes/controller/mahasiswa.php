@@ -25,11 +25,11 @@ class Controller_Mahasiswa extends Controller_Website {
             $mahasiswa = new Model_Mahasiswa();
             $user = new Model_User();
 
-            $user->username = $_POST['nim'];
+            $user->username = $_POST['nim']; // nimnya harus dicek dulu nih
             $user->password = $_POST['password'];
             $user->save();
 
-            $mahasiswa->nim = $_POST['nim'];
+            $mahasiswa->nim = $_POST['nim']; // nimnya harus dicek dulu nih
             $mahasiswa->username_id = $user->id;
             $mahasiswa->nama = $_POST['nama'];
             $mahasiswa->tempat_lahir = $_POST['tempat_lahir'];
@@ -40,18 +40,38 @@ class Controller_Mahasiswa extends Controller_Website {
             $mahasiswa->nama_ayah = $_POST['nama_ayah'];
             $mahasiswa->telp_rumah = $_POST['telp_rumah'];
             $mahasiswa->tahun_masuk = $_POST['tahun_masuk'];
-            $mahasiswa->status_kelulusan = $_POST['status_kelulusan'];
+            $mahasiswa->status_kelulusan = 2; // belum lulus
 
             $mahasiswa->save();
         }
     }
 
-    public function action_edit() {
+    public function action_edit($nim) {
         $this->template->title = "Edit Mahasiswa";
+
+        $mahasiswa = new Model_Mahasiswa($nim);
+        $this->template->content->mahasiswa = $mahasiswa;
+
+        if (isset($_POST['nama'])) {
+            $mahasiswa->nama = $_POST['nama'];
+            $mahasiswa->tempat_lahir = $_POST['tempat_lahir'];
+            $mahasiswa->tanggal_lahir = $_POST['tanggal_lahir'];
+            $mahasiswa->email = $_POST['email'];
+            $mahasiswa->alamat = $_POST['alamat'];
+            $mahasiswa->no_hp = $_POST['no_hp'];
+            $mahasiswa->nama_ayah = $_POST['nama_ayah'];
+            $mahasiswa->telp_rumah = $_POST['telp_rumah'];
+            $mahasiswa->tahun_masuk = $_POST['tahun_masuk'];
+
+            $mahasiswa->save();
+        }
     }
 
-    public function action_delete() {
+    public function action_delete($nim) {
         $this->template->title = "Delete Mahasiswa";
+
+        $mahasiswa = new Model_Mahasiswa($nim);
+        $mahasiswa->delete();
     }
 
 } // End Mahasiswa
