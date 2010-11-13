@@ -16,6 +16,9 @@ class Controller_Mahasiswa extends Controller_Website {
 
     public function action_list() {
         $this->template->title = "List Mahasiswa";
+
+        $mahasiswas = new Model_Mahasiswa();
+        $this->template->content->mahasiswas = $mahasiswas->find_all();
     }
 
     public function action_add() {
