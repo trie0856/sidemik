@@ -50,7 +50,6 @@ class Controller_Mahasiswa extends Controller_Website {
         $this->template->title = "Edit Mahasiswa";
 
         $mahasiswa = new Model_Mahasiswa($nim);
-        $this->template->content->mahasiswa = $mahasiswa;
 
         if (isset($_POST['nama'])) {
             $mahasiswa->nama = $_POST['nama'];
@@ -65,6 +64,7 @@ class Controller_Mahasiswa extends Controller_Website {
 
             $mahasiswa->save();
         }
+        $this->template->content->mahasiswa = $mahasiswa;
     }
 
     public function action_delete($nim) {
