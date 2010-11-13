@@ -10,6 +10,10 @@ edit
         <td><?php echo Form::input('nama', $matakuliah->nama);?></td>
     </tr>
     <tr>
+        <td><?php echo Form::label('jumlah_sks', 'Jumlah SKS')?></td>
+        <td><?php echo Form::select('jumlah_sks', $select_jumlah_sks, $matakuliah->jumlah_sks);?></td>
+    </tr>
+    <tr>
         <td><?php echo Form::label('deskripsi', 'Deskripsi')?></td>
         <td><?php echo Form::textarea('deskripsi', $matakuliah->deskripsi);?></td>
     </tr>
