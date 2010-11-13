@@ -13,6 +13,7 @@ for ($i = 1; $i < 9; ++$i) {
         <tr>
             <th>Kode</th>
             <th>Mata Kuliah</th>
+            <th>Sudah Ambil</th>
             <th>Ambil</th>
         </tr>
     </thead>
@@ -35,14 +36,18 @@ for ($i = 1; $i < 9; ++$i) {
                             ->where('nim_mahasiswa', '=', $mahasiswa->nim)
                             ->where('kode_kuliah', '=', $matakuliah->kode)
                             ->where('semester', '=', $semester_ambil)
+                            ->where('nilai', '!=', '')
                             ->find();
                 if ($result->id != NULL) {
-                    $ambil = 'ya';
+                    $ambil = 'Ya';
                 } else {
-                    $ambil = 'tidak';
+                    $ambil = 'Belum';
                 }
-                echo Form::select("ambil[$matakuliah->kode]", array('tidak' => 'Tidak', 'ya' => 'Ya'), $ambil)
+                echo $ambil;
                 ?>
+            </td>
+            <td>
+                <?php echo Form::checkbox("ambil[$matakuliah->kode]");?>
             </td>
         </tr>
         <?php
