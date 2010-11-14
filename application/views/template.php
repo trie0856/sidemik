@@ -19,7 +19,11 @@ and open the template in the editor.
             </div>
             <div id="middle">
                 <div id="navigator">
-                    Navigator
+                    <?php
+                        foreach ($links as $uri => $desc) {
+                            echo HTML::anchor($uri, $desc['title']) . "<br />";
+                        }
+                    ?>
                 </div>
                 <div id="content">
                     <?php

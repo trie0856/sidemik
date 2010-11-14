@@ -19,8 +19,11 @@ class Controller_Website extends Controller_Template {
 
         if ($this->auto_render) {
             $styles = array('media/css/style.css' => 'screen');
+            $links  = Kohana::config('link');
+            
 
             $this->template->styles = array_merge($this->template->styles, $styles);
+            $this->template->links = $links['admin'];
         }
     }
 }
