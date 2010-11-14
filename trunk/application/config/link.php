@@ -1,11 +1,18 @@
 <?php defined('SYSPATH') or die ('No direct script access.');
 return array
 (
-    'mahasiswa' => array
+    'admin' => array
         (
-            'name'        => 'Beranda',
-            'en'        => 'Home',
-            'current'   => FALSE,
+            'mahasiswa/list'    => array
+                (
+                    'title'      => 'Daftar Mahasiswa',
+                    'current'   => FALSE,
+                ),
+            'matakuliah/list'    => array
+                (
+                    'title'      => 'Daftar Matakuliah',
+                    'current'   => FALSE,
+                ),
         )
 );
 ?>
