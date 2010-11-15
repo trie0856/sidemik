@@ -5,12 +5,22 @@ return array
         (
             'mahasiswa/list'    => array
                 (
-                    'title'      => 'Daftar Mahasiswa',
+                    'title'     => 'Daftar Mahasiswa',
                     'current'   => FALSE,
                 ),
-            'matakuliah/list'    => array
+            'matakuliah/list'   => array
                 (
-                    'title'      => 'Daftar Matakuliah',
+                    'title'     => 'Daftar Matakuliah',
+                    'current'   => FALSE,
+                ),
+            'dosen/list'   => array
+                (
+                    'title'     => 'Daftar Dosen',
+                    'current'   => FALSE,
+                ),
+            'user/edit'         => array
+                (
+                    'title'     => 'Ubah Password',
                     'current'   => FALSE,
                 ),
         )
