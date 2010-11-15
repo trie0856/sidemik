@@ -1,4 +1,4 @@
-list
+<?php echo HTML::anchor('matakuliah/add', 'Tambah Matakuliah')?>
 <table border="1">
     <thead>
         <tr>
