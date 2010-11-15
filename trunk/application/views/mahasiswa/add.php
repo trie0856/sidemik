@@ -22,6 +22,10 @@ add
         <td><?php echo Form::input('tanggal_lahir');?></td>
     </tr>
     <tr>
+        <td><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
+        <td><?php echo Form::select('jenis_kelamin', array('-1' => '', '0' => 'Wanita', '1' => 'Pria'));?></td>
+    </tr>
+    <tr>
         <td><?php echo Form::label('email', 'Email');?></td>
         <td><?php echo Form::input('email');?></td>
     </tr>

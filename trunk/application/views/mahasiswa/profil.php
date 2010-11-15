@@ -17,6 +17,10 @@ profil
         <td><?php echo $mahasiswa->tanggal_lahir;?></td>
     </tr>
     <tr>
+        <td><?php echo 'Jenis Kelamin';?></td>
+        <td><?php echo $referensi_jenis_kelamin[$mahasiswa->jenis_kelamin];?></td>
+    </tr>
+    <tr>
         <td><?php echo 'Email';?></td>
         <td><?php echo $mahasiswa->email;?></td>
     </tr>

@@ -17,7 +17,9 @@ class Controller_Mahasiswa extends Controller_Website {
     public function action_profil($nim) {
         $this->template->title = "Profil Mahasiswa";
         $mahasiswa = new Model_Mahasiswa($nim);
+        $referensi_jenis_kelamin = array('-1' => '', '0' => 'Wanita', '1' => 'Pria');
         $this->template->content->mahasiswa = $mahasiswa;
+        $this->template->content->referensi_jenis_kelamin = $referensi_jenis_kelamin;
     }
 
     public function action_list() {
@@ -43,6 +45,7 @@ class Controller_Mahasiswa extends Controller_Website {
             $mahasiswa->nama = $_POST['nama'];
             $mahasiswa->tempat_lahir = $_POST['tempat_lahir'];
             $mahasiswa->tanggal_lahir = $_POST['tanggal_lahir'];
+            $mahasiswa->jenis_kelamin = $_POST['jenis_kelamin'];
             $mahasiswa->email = $_POST['email'];
             $mahasiswa->alamat = $_POST['alamat'];
             $mahasiswa->no_hp = $_POST['no_hp'];
@@ -64,6 +67,7 @@ class Controller_Mahasiswa extends Controller_Website {
             $mahasiswa->nama = $_POST['nama'];
             $mahasiswa->tempat_lahir = $_POST['tempat_lahir'];
             $mahasiswa->tanggal_lahir = $_POST['tanggal_lahir'];
+            $mahasiswa->jenis_kelamin = $_POST['jenis_kelamin'];
             $mahasiswa->email = $_POST['email'];
             $mahasiswa->alamat = $_POST['alamat'];
             $mahasiswa->no_hp = $_POST['no_hp'];
