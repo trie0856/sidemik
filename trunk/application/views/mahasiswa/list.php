@@ -1,4 +1,4 @@
-list
+<?php echo HTML::anchor('mahasiswa/add', 'Tambah Mahasiswa')?>
 <table border="1">
     <thead>
         <tr>
