@@ -3,6 +3,9 @@
 class Controller_User extends Controller_Website {
     
     public function before() {
+        if (in_array(Request::instance()->action, array('login'))) {
+            $this->template = 'template/one_column';
+        }
         parent::before();
     }
     
@@ -42,6 +45,25 @@ class Controller_User extends Controller_Website {
 
     public function action_delete($id) {
         $this->template->title = "Delete User";
+    }
+
+    public function action_login() {
+        if (Auth::instance()->logged_in()) {
+            Request::instance()->redirect('/');
+        }
+        $this->template->title = "Login";
+        if (isset($_POST['username'])) {
+            $user = new Model_User();
+            $status = $user->login($_POST, 'front/index');
+        }
+    }
+
+    public function action_logout() {
+        if (Auth::instance()->logged_in()) {
+            Auth::instance()->logout();
+        }
+
+        Request::instance()->redirect('/');
     }
 
 } // End User
