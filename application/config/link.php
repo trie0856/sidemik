@@ -1,21 +1,21 @@
 <?php defined('SYSPATH') or die ('No direct script access.');
 return array
 (
-    'Daftar Mahasiswa'      => array (
+    'Mahasiswa'      => array (
         'link'      => 'mahasiswa/list',
         'role'      => array('admin', 'tata_usaha')
     ),
-    'Daftar Matakuliah'     => array (
+    'Matakuliah'     => array (
         'link'      => 'matakuliah/list',
         'role'      => array('admin', 'tata_usaha')
     ),
-    'Daftar Dosen'          => array (
+    'Dosen'          => array (
         'link'      => 'dosen/list',
         'role'      => array('admin', 'tata_usaha')
     ),
 
     'Profil Dosen'          => array (
-        'link'      => 'dosen/view',
+        'link'      => 'dosen/profil',
         'role'      => array('dosen')
     ),
     'Input Nilai'           => array (
@@ -32,7 +32,7 @@ return array
     ),
 
     'Profil Mahasiswa'      => array (
-        'link'      => 'mahasiswa/view',
+        'link'      => 'mahasiswa/profil',
         'role'      => array('mahasiswa')
     ),
     'KSM'                   => array (

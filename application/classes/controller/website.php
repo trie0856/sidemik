@@ -47,20 +47,16 @@ class Controller_Website extends Controller_Template {
 
         if ($this->auto_render) {
             $styles = array('media/css/style.css' => 'screen');
-            $links  = Kohana::config('link');
-
-            if (Auth::instance()->logged_in()) {
-                $links["Ubah Password"]["link"] .= '/' . Auth::instance()->get_user()->id;
-            }
-
-            $links  = $this->filter_links($links);
-
             $this->template->styles = array_merge($this->template->styles, $styles);
+
+            $links  = Kohana::config('link');
+            $this->add_id_to_some_links($links);
+            $this->filter_links($links);
             $this->template->links = $links;
         }
     }
 
-    public function filter_links($links) {
+    public function filter_links(& $links) {
         $newlinks = array();
         $rule;
         foreach ($links as $title => $link) {
@@ -69,8 +65,23 @@ class Controller_Website extends Controller_Template {
             }
         }
 
-        print_r($newlinks);
+        $links = $newlinks;
+    }
 
-        return $newlinks;
+    public function add_id_to_some_links(& $links) {
+
+        $user_id;
+        if (Auth::instance()->logged_in()) {
+            $user_id = Auth::instance()->get_user()->id;
+            $links["Ubah Password"]["link"] .= '/' . $user_id;
+        }
+
+        if (Auth::instance()->logged_in('mahasiswa')) {
+            $mahasiswa = new Model_Mahasiswa(array('user_id' => $user_id));
+            $links["Profil Mahasiswa"]["link"] .= '/' . $mahasiswa->nim;
+            $links["KSM"]["link"] .= '/' . $mahasiswa->nim;
+            $links["Transkrip Akademik"]["link"] .= '/' . $mahasiswa->nim;
+            $links["Jadwal Kuliah"]["link"] .= '/' . $mahasiswa->nim;
+        }
     }
 }
