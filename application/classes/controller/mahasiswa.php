@@ -1,7 +1,13 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 class Controller_Mahasiswa extends Controller_Website {
-    
+
+    public $auth_required = 'login';
+    public $secure_actions = array(
+        'list'      => array('admin', 'tata_usaha'),
+        'add'       => 'admin',
+    );
+
     public function before() {
         parent::before();
     }
@@ -40,8 +46,12 @@ class Controller_Mahasiswa extends Controller_Website {
             $user->password = $_POST['password'];
             $user->save();
 
+            // Masukkan role user
+            $user->add('roles', ORM::factory('role')->where('name', '=', 'login')->find());
+            $user->add('roles', ORM::factory('role')->where('name', '=', 'mahasiswa')->find());
+
             $mahasiswa->nim = $_POST['nim']; // nimnya harus dicek dulu nih
-            $mahasiswa->username_id = $user->id;
+            $mahasiswa->user_id = $user->id;
             $mahasiswa->nama = $_POST['nama'];
             $mahasiswa->tempat_lahir = $_POST['tempat_lahir'];
             $mahasiswa->tanggal_lahir = $_POST['tanggal_lahir'];
