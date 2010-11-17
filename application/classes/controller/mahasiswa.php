@@ -100,4 +100,7 @@ class Controller_Mahasiswa extends Controller_Website {
         $mahasiswa->delete();
     }
 
+    public function action_statuspembayaran($nim) {
+        $this->template->title = 'Mahasiswa - Status pembayaran';
+    }
 } // End Mahasiswa
