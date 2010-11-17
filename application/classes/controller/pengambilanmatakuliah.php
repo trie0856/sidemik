@@ -47,6 +47,10 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
     }
 
     public function action_inputnilai($kode_mata_kuliah = NULL) {
-        $this->template->title = "inputnilai mahasiswa";
+        $this->template->title = "Inputnilai mahasiswa";
+    }
+
+    public function action_jadwal($nim) {
+        $this->template->title = "Jadwal Kuliah";
     }
 } // End Pengambilan matakuliah
