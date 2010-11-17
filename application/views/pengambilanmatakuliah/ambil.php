@@ -7,7 +7,12 @@ for ($i = 1; $i < 9; ++$i) {
 ?>
 
 <?php echo Form::open(NULL, array('method' => 'post'))?>
-<?php echo Form::select('semester_ambil', $semester_ambils, 2);?>
+<table>
+    <tr>
+        <td>Semester</td>
+        <td><?php echo Form::select('semester_ambil', $semester_ambils, 2);?></td>
+    </tr>
+</table>
 <table>
     <thead>
         <tr>
@@ -19,7 +24,7 @@ for ($i = 1; $i < 9; ++$i) {
     </thead>
     <tfoot>
         <tr>
-            <td colspan="3"><?php echo Form::submit('ambil', 'Ambil'); ?></td>
+            <td colspan="3"><?php echo Form::submit('submit', 'Ambil'); ?></td>
         </tr>
     </tfoot>
     <tbody>
