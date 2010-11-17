@@ -37,7 +37,11 @@ class Controller_Matakuliah extends Controller_Website {
     public function action_list() {
         $this->template->title = "List Matakuliah";
         $matakuliahs = new Model_Matakuliah();
-        $this->template->content->matakuliahs = $matakuliahs->find_all();
+        $matakuliahs = $matakuliahs
+                        ->order_by('tingkat', 'ASC')
+                        ->order_by('semester_buka', 'ASC')
+                        ->find_all();
+        $this->template->content->matakuliahs = $matakuliahs;
     }
 
     public function action_add() {
@@ -46,7 +50,7 @@ class Controller_Matakuliah extends Controller_Website {
 
         if (isset($_POST['kode']) && isset($_POST['nama'])) {
             $matakuliah = new Model_Matakuliah();
-
+            
             $matakuliah->kode = $_POST['kode'];
             $matakuliah->nama = $_POST['nama'];
             $matakuliah->jumlah_sks = $_POST['jumlah_sks'];
