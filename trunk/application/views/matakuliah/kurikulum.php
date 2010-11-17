@@ -1,8 +1,7 @@
 kurikulum
 <?php
-$tingkat = 0;
-foreach($kurikulum as $mk_per_tingkat) {
-    ++$tingkat;
+for ($tingkat = 1; $tingkat<=3; ++$tingkat) {
+$mk_per_tingkat = $kurikulum[$tingkat];
 ?>
 <table border="1">
     <thead>

@@ -7,57 +7,84 @@ for ($i = 1; $i < 9; ++$i) {
 ?>
 
 <?php echo Form::open(NULL, array('method' => 'post'))?>
-<table>
+<table align="center">
     <tr>
         <td>Semester</td>
         <td><?php echo Form::select('semester_ambil', $semester_ambils, 2);?></td>
     </tr>
 </table>
-<table>
+<?php
+for ($tingkat = 1; $tingkat<=3; ++$tingkat) {
+$mk_per_tingkat = $kurikulum[$tingkat];
+?>
+<table border="1" align="center">
     <thead>
         <tr>
+            <th colspan="4" width="350">Semester <?php echo ($tingkat-1)*2 + 1;?></th>
+            <th colspan="4" width="350">Semester <?php echo ($tingkat-1)*2 + 2;?></th>
+        </tr>
+        <tr>
             <th>Kode</th>
-            <th>Mata Kuliah</th>
-            <th>Sudah Ambil</th>
+            <th>Nama Matakuliah</th>
+            <th>SKS</th>
+            <th>Ambil</th>
+            <th>Kode</th>
+            <th>Nama Matakuliah</th>
+            <th>SKS</th>
             <th>Ambil</th>
         </tr>
     </thead>
-    <tfoot>
-        <tr>
-            <td colspan="3"><?php echo Form::submit('submit', 'Ambil'); ?></td>
-        </tr>
-    </tfoot>
-    <tbody>
+    
+    <?php
+    $count_1 = count($mk_per_tingkat[1]);
+    $count_2 = count($mk_per_tingkat[2]);
+    $max = max(array($count_1, $count_2));
+    $mk_1 = $mk_per_tingkat[1];
+    $mk_2 = $mk_per_tingkat[2];
+    ?>
+    <?php
+    for ($i=0; $i<$max; ++$i) {
+    ?>
+    <tr>
+        <?php if(isset ($mk_1[$i])) { ?>
+        <td><?php echo $mk_1[$i]->kode ?></td>
+        <td><?php echo $mk_1[$i]->nama ?></td>
+        <td><?php echo $mk_1[$i]->jumlah_sks ?></td>
+        <td><?php echo Form::checkbox("ambil[". $mk_1[$i]->kode . "]")?></td>
         <?php
-        foreach ($matakuliahs as $matakuliah) {
+        } else {
         ?>
-        <tr>
-            <td><?php  echo $matakuliah->kode; ?></td>
-            <td><?php echo $matakuliah->nama; ?></td>
-            <td>
-                <?php
-                $ambil;
-                $result = $pengambilanmks
-                            ->where('nim_mahasiswa', '=', $mahasiswa->nim)
-                            ->where('kode_kuliah', '=', $matakuliah->kode)
-                            ->where('semester', '=', $semester_ambil)
-                            ->where('nilai', '!=', '')
-                            ->find();
-                if ($result->id != NULL) {
-                    $ambil = 'Ya';
-                } else {
-                    $ambil = 'Belum';
-                }
-                echo $ambil;
-                ?>
-            </td>
-            <td>
-                <?php echo Form::checkbox("ambil[$matakuliah->kode]");?>
-            </td>
-        </tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
         <?php
         }
         ?>
-    </tbody>
+
+       <?php if(isset ($mk_2[$i])) { ?>
+        <td><?php echo $mk_2[$i]->kode ?></td>
+        <td><?php echo $mk_2[$i]->nama ?></td>
+        <td><?php echo $mk_2[$i]->jumlah_sks ?></td>
+        <td><?php echo Form::checkbox("ambil[". $mk_2[$i]->kode . "]")?></td>
+        <?php
+        } else {
+        ?>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <?php
+        }
+        ?>
+    </tr>
+    <?php
+    }
+    ?>
 </table>
+<br />
+<?
+}
+?>
+<?php echo Form::submit('submit', 'Ambil') ?>
 <?php echo Form::close() ?>
