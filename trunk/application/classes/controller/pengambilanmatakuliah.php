@@ -16,6 +16,24 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
 
     public function action_ambil($nim) {
         $this->template->title = "Ambil matakuliah";
+
+        if (isset ($_POST['ambil'])) {
+            // hapus data yang telah ada
+            $pengambilanmks = new Model_Pengambilanmk();
+            $pengambilanmks->where('semester', '=', $_POST['semester_ambil'])
+                    ->where('nim_mahasiswa', '=', $nim)
+                    ->delete_all();
+
+            // simpan data
+            foreach ($_POST['ambil'] as $key => $val) {
+                $pengambilanmks = new Model_Pengambilanmk();
+                $pengambilanmks->kode_kuliah    = $key;
+                $pengambilanmks->nim_mahasiswa  = $nim;
+                $pengambilanmks->semester       = $_POST['semester_ambil'];
+                $pengambilanmks->save();
+            }
+        }
+
         $matakuliahs = new Model_Matakuliah();
         $mahasiswa = new Model_Mahasiswa($nim);
         $pengambilanmks = new Model_Pengambilanmk();
