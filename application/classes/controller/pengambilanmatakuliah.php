@@ -34,13 +34,27 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
             }
         }
 
-        $matakuliahs = new Model_Matakuliah();
+        $matakuliah = new Model_Matakuliah();
         $mahasiswa = new Model_Mahasiswa($nim);
         $pengambilanmks = new Model_Pengambilanmk();
+        $kurikulum = array();
+        $matakuliah = $matakuliah->find_all();
 
-        $this->template->content->matakuliahs = $matakuliahs->find_all();
+        foreach($matakuliah as $_matakuliah) {
+            if ($_matakuliah->semester_buka != 1 && $_matakuliah->semester_buka != 2) {// buka di semester ganjil dan genap
+                // simpan ke kurikulum
+                $kurikulum[$_matakuliah->tingkat][1][] =
+                        $_matakuliah;
+            } else {
+                // simpan ke kurikulum
+                $kurikulum[$_matakuliah->tingkat][$_matakuliah->semester_buka][] =
+                        $_matakuliah;
+            }
+        }
+
         $this->template->content->mahasiswa = $mahasiswa;
         $this->template->content->pengambilanmks = $pengambilanmks;
+        $this->template->content->kurikulum = $kurikulum;
     }
 
     public function action_ksm($nim) {
