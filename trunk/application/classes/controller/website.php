@@ -14,8 +14,10 @@ class Controller_Website extends Controller_Template {
     // 'moderatorpanel' => array('login', 'moderator') will only allow users with the roles login and moderator to access action_moderatorpanel
     public $secure_actions = FALSE;
 
-
     public function before() {
+
+        $this->check_for_need_two_navigation_template();
+        
         parent::before();
 
         $action_name = Request::instance()->action;
@@ -53,6 +55,13 @@ class Controller_Website extends Controller_Template {
             $this->add_id_to_some_links($links);
             $this->filter_links($links);
             $this->template->links = $links;
+
+            if(Auth::instance()->logged_in(array('admin', 'tata_usaha'))) {
+                $this->admin_tu_func_set_session();
+                $links = Kohana::config('link_admin_tu');
+                $this->admin_tu_func_add_id_for_links($links);
+                $this->template->links_2 = $links;
+            }
         }
     }
 
@@ -82,6 +91,59 @@ class Controller_Website extends Controller_Template {
             $links["KSM"]["link"] .= '/' . $mahasiswa->nim;
             $links["Transkrip Akademik"]["link"] .= '/' . $mahasiswa->nim;
             $links["Jadwal Kuliah"]["link"] .= '/' . $mahasiswa->nim;
+        }
+    }
+
+    /**
+     * Memeriksa apakah halaman yang di-<i>request</i> membutuhkan template
+     * dengan dua navigasi. Jika ya, $template = 'template/tow_navigation'.
+     */
+    public function check_for_need_two_navigation_template() {
+        $links = Kohana::config('link_admin_tu');
+        $request = Request::instance();
+        $key = $request->controller . '/' . $request->action;
+        
+        if ($key == 'user/edit' && $request->param('id') == Auth::instance()->get_user()->id) {
+            // do nothing
+        } else if (array_key_exists($key, $links)) {
+            $this->template = 'template/two_navigation';
+        }
+    }
+
+    /**
+     * Menambahkan id pada akhir masing - masing link untuk navigasi tambahan
+     * pada admin dan tata usaha.
+     */
+    public function admin_tu_func_add_id_for_links(& $links) {
+        $newlinks = array();
+        foreach ($links as $link => $value) {
+            if ($link == 'user/edit') {
+                $newlinks[$link . '/' . Session::instance()->get('user_id')] = $links[$link];
+            } else {
+                $newlinks[$link . '/' . Session::instance()->get('nim')] = $links[$link];
+            }
+        }
+
+        $links = $newlinks;
+    }
+
+    /**
+     * Menyimpan nim mahasiswa, nim dosen atau user_id dalam session jika admin
+     * atau tata_usaha mengunjungi profil mahasiswa atau dosen tertentu.
+     */
+    public function admin_tu_func_set_session() {
+        $request = Request::instance();
+        $key = $request->controller . '/' . $request->action;
+        if ($key == 'mahasiswa/profil') {
+            $nim = $request->param('id');
+            Session::instance()->set('nim', $nim);
+            $mahasiswa = new Model_Mahasiswa($nim);
+            Session::instance()->set('user_id', $mahasiswa->user_id);
+        } else if ($key == 'dosen/profil'){
+            $nim = $request->param('id');
+            Session::instance()->set('nip', $nip);
+            $dosen = new Model_Dosen($nip);
+            Session::instance()->set('user_id', $dosen->user_id);
         }
     }
 }
