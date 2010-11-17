@@ -74,10 +74,42 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
         $this->template->content->matakuliahs = $matakuliahs;
     }
 
-    public function action_transkrip() {
+    public function action_transkrip($nim) {
         $this->template->title = "Transkrip mahasiswa";
 
-        
+        $pmks = new Model_Pengambilanmk();
+        $pmks = $pmks->where('nim_mahasiswa', '=', $nim)->
+                order_by('kode_kuliah', 'ASC')->find_all();
+        $mahasiswa = new Model_Mahasiswa($nim);
+        $tahun = new Model_Config('tahun');
+        $tahun = $tahun->value;
+        $semester = new Model_Config('semester');
+        $semester = $semester->value;
+        $transkrip = array();
+        //$batas = $this->tahun_semester_to_semester($tahun, $semester, $mahasiswa->tahun_masuk);
+        $batas = 6;
+
+        // init;
+        for($i = 1; $i <= $batas; ++$i) {
+            $transkrip[$i] = array();
+        }
+        foreach($pmks as $pmk) {
+            $matakuliah = new Model_Matakuliah($pmk->kode_kuliah);
+            $nilai;
+            if ($pmk->nilai == NULL) {
+                $nilai = '-';
+            } else {
+                $nilai = $pmk->nilai;
+            }
+            $transkrip[$pmk->semester][] = array(
+                'kode_matakuliah'   => $pmk->kode_kuliah,
+                'nama_matakuliah'   => $matakuliah->nama,
+                'sks'               => $matakuliah->jumlah_sks,
+                'nilai'             => $nilai,
+            );
+        }
+
+        $this->template->content->transkrip = $transkrip;
     }
 
     public function action_inputnilai($kode_mata_kuliah = NULL, $tahun = NULL, $semester = NULL) {
