@@ -44,7 +44,7 @@ return array
         'role'      => array('mahasiswa')
     ),
     'Jadwal Kuliah'      => array (
-        'link'      => 'pengambilanmatakuliah/jadwalkuliah',
+        'link'      => 'pengambilanmatakuliah/jadwal',
         'role'      => array('mahasiswa')
     ),
 
