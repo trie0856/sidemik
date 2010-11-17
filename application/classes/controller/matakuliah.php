@@ -30,6 +30,10 @@ class Controller_Matakuliah extends Controller_Website {
         $this->template->content->matakuliah = $matakuliah;
     }
 
+    public function action_kurikulum() {
+        $this->template->title = "Kurikulum";
+    }
+
     public function action_list() {
         $this->template->title = "List Matakuliah";
         $matakuliahs = new Model_Matakuliah();
