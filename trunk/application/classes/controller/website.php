@@ -99,14 +99,16 @@ class Controller_Website extends Controller_Template {
      * dengan dua navigasi. Jika ya, $template = 'template/tow_navigation'.
      */
     public function check_for_need_two_navigation_template() {
-        $links = Kohana::config('link_admin_tu');
-        $request = Request::instance();
-        $key = $request->controller . '/' . $request->action;
-        
-        if ($key == 'user/edit' && $request->param('id') == Auth::instance()->get_user()->id) {
-            // do nothing
-        } else if (array_key_exists($key, $links)) {
-            $this->template = 'template/two_navigation';
+        if (Auth::instance()->logged_in(array('admin', 'tata_usaha'))) {
+            $links = Kohana::config('link_admin_tu');
+            $request = Request::instance();
+            $key = $request->controller . '/' . $request->action;
+
+            if ($key == 'user/edit' && $request->param('id') == Auth::instance()->get_user()->id) {
+                // do nothing
+            } else if (array_key_exists($key, $links)) {
+                $this->template = 'template/two_navigation';
+            }
         }
     }
 
