@@ -32,6 +32,24 @@ class Controller_Matakuliah extends Controller_Website {
 
     public function action_kurikulum() {
         $this->template->title = "Kurikulum";
+
+        $matakuliah = new Model_Matakuliah();
+        $matakuliah = $matakuliah->find_all();
+        $kurikulum = array();
+
+        foreach($matakuliah as $_matakuliah) {
+            if ($_matakuliah->semester_buka != 1 && $_matakuliah->semester_buka != 2) {// buka di semester ganjil dan genap
+                // simpan ke kurikulum
+                $kurikulum[$_matakuliah->tingkat][1][] =
+                        $_matakuliah;
+            } else {
+                // simpan ke kurikulum
+                $kurikulum[$_matakuliah->tingkat][$_matakuliah->semester_buka][] =
+                        $_matakuliah;
+            }
+        }
+
+        $this->template->content->kurikulum = $kurikulum;
     }
 
     public function action_list() {
