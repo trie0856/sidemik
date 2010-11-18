@@ -41,6 +41,7 @@ class Controller_Website extends Controller_Template {
             $this->template->styles = array();
             $this->template->scripts = array();
             $this->template->links = array();
+            $this->template->auth_user = Auth::instance();
         }
     }
 
@@ -62,6 +63,10 @@ class Controller_Website extends Controller_Template {
                 $this->admin_tu_func_add_id_for_links($links);
                 $this->template->links_2 = $links;
             }
+
+            // Kelola Greeting
+            $greeting = $this->manage_greeting();
+            $this->template->greeting = $greeting;
         }
     }
 
@@ -147,5 +152,35 @@ class Controller_Website extends Controller_Template {
             $dosen = new Model_Dosen($nip);
             Session::instance()->set('user_id', $dosen->user_id);
         }
+    }
+
+    /**
+     * Mengembalikan kalimat greeting sesuai dengan pengguna yang sedang login
+     * @return string
+     */
+    public function manage_greeting() {
+        $auth = Auth::instance();
+        $greeting = '';
+
+        if ($auth->logged_in()) { // user login
+            $user = $auth->get_user();
+            
+            if ($auth->logged_in('mahasiswa'))  // jika yang login mahasiswa
+            {
+                $mahasiswa = new Model_Mahasiswa(array('user_id' => $user->id));
+                $greeting = "> Selamat Datang, $mahasiswa->nama";
+            }
+            else if ($auth->logged_in('dosen')) // jika yang login
+            {
+                $dosen = new Model_Dosen(array('user_id', $user->id));
+                $greeting = "> Selamat Datang, $dosen->nama";
+            }
+            else //jika yang login tata usah atau admin
+            {
+                $greeting = "> Selamat Datang, $user->username";
+            }
+        }
+
+        return $greeting;
     }
 }

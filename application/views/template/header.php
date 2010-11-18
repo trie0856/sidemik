@@ -15,7 +15,22 @@ and open the template in the editor.
     <body>
         <div id="wrap">
             <div id="header">
-                Logo<br />
-                <?php echo HTML::anchor('user/logout', 'Logout')?>
+                <div id="logo">
+                    Logo<br />
+                </div>
+                <div id="greeting">
+                    <?php echo $greeting; ?>
+                </div>
+                <?php
+                if ($auth_user->logged_in()) :
+                ?>
+                <div id="logout">
+                    > 
+                    <?php echo HTML::anchor('user/logout', 'Logout')?>
+                </div>
+                <?php
+                endif;
+                ?>
+                <div class="clear"></div>
             </div>
             <div id="middle">
