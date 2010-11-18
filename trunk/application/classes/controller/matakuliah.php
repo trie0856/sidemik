@@ -2,6 +2,14 @@
 
 class Controller_Matakuliah extends Controller_Website {
 
+    public $auth_required = 'login';
+    public $secure_actions = array(
+        'list'      => array('admin', 'tata_usaha'),
+        'add'       => 'admin',
+        'edit'      => 'admin',
+        'delete'    => 'admin',
+    );
+
     public $select_jumlah_sks = array();
 
     public function generateSelectJumlahSKS() {

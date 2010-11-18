@@ -1,7 +1,13 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 class Controller_Pengambilanmatakuliah extends Controller_Website {
-    
+
+    public $auth_required = 'login';
+    public $secure_actions = array(
+        'ambil'     => 'admin',
+        'inputnilai'=> array('admin', 'dosen')
+    );
+
     public function before() {
         parent::before();
     }
