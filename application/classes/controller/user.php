@@ -1,7 +1,15 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 class Controller_User extends Controller_Website {
-    
+
+    public $secure_actions = array(
+        'list'      => 'admin',
+        'add'       => 'admin',
+        'delete'    => 'admin',
+        'logout'    => 'login',
+        'edit'      => 'login'
+    );
+
     public function before() {
         if (in_array(Request::instance()->action, array('login'))) {
             $this->template = 'template/one_column';

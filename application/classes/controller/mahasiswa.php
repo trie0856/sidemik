@@ -4,7 +4,7 @@ class Controller_Mahasiswa extends Controller_Website {
 
     public $auth_required = 'login';
     public $secure_actions = array(
-        'profil'    => array('admin', 'tata_usaha', 'dosen', 'mahasiswa'),
+        'profil'    => 'login',
         'list'      => array('admin', 'tata_usaha'),
         'add'       => 'admin',
         'edit'      => 'admin',
@@ -24,6 +24,8 @@ class Controller_Mahasiswa extends Controller_Website {
     }
 
     public function action_profil($nim) {
+        $auth = Auth::instance();
+
         $this->template->title = "Profil Mahasiswa";
         $mahasiswa = new Model_Mahasiswa($nim);
         $referensi_jenis_kelamin = array('-1' => '', '0' => 'Wanita', '1' => 'Pria');
@@ -102,5 +104,27 @@ class Controller_Mahasiswa extends Controller_Website {
 
     public function action_statuspembayaran($nim) {
         $this->template->title = 'Mahasiswa - Status pembayaran';
+
+        if (isset($_POST['bayar'])) {
+            // hapus data lama
+            $status = new Model_Statuspembayaran(array('nim' => $nim));
+            $status->delete_all();
+            
+            foreach ($_POST['bayar'] as $sem => $value) {
+                $status = new Model_Statuspembayaran();
+                $status->nim = $nim;
+                $status->semester = $sem;
+                $status->save();
+            }
+        }
+
+        $status = new Model_Statuspembayaran();
+        $status = $status->where('nim' ,'=', $nim)->find_all();
+        $bayar = array();
+        foreach($status as $s) {
+            $bayar[] = $s->semester;
+        }
+        
+        $this->template->content->bayar = $bayar;
     }
 } // End Mahasiswa

@@ -60,6 +60,7 @@ class Controller_Website extends Controller_Template {
             if(Auth::instance()->logged_in(array('admin', 'tata_usaha'))) {
                 $this->admin_tu_func_set_session();
                 $links = Kohana::config('link_admin_tu');
+                $links = $this->admin_tu_filter_links($links);
                 $this->admin_tu_func_add_id_for_links($links);
                 $this->template->links_2 = $links;
             }
@@ -116,6 +117,26 @@ class Controller_Website extends Controller_Template {
             }
         }
     }
+
+    /**
+     * Menerima inputan links kemudian melakukan filter sesuai dengan role dari
+     * pengguna yang sedang login. Fungsi akan mengembalikan link baru setelah
+     * selesai melakukan filter.
+     * @param array $links he
+     * @return array
+     */
+    public function admin_tu_filter_links($links) {
+        $newlinks = array();
+
+        foreach($links as $link => $value) {
+            if (Auth::instance()->logged_in($value['role'])) {
+                $newlinks[$link] = $value;
+            }
+        }
+
+        return $newlinks;
+    }
+
 
     /**
      * Menambahkan id pada akhir masing - masing link untuk navigasi tambahan
