@@ -48,7 +48,8 @@ class Controller_Dosen extends Controller_Website {
             $dosen->nama = $_POST['nama'];
             $dosen->tahun_masuk = $_POST['tahun_masuk'];
             $dosen->tempat_lahir = $_POST['tempat_lahir'];
-            $dosen->tanggal_lahir = $_POST['tanggal_lahir'];
+            $tanggal_lahir = $_POST['tahun'] . "-" . $_POST['bulan'] . "-" . $_POST['tanggal'];
+            $dosen->tanggal_lahir = $tanggal_lahir;
             $dosen->jenis_kelamin = $_POST['jenis_kelamin'];
             $dosen->alamat = $_POST['alamat'];
             $dosen->no_hp = $_POST['no_hp'];
@@ -63,12 +64,17 @@ class Controller_Dosen extends Controller_Website {
         $this->template->title = "Edit Dosen";
 
         $dosen = new Model_Dosen($nip);
+        $explode = explode('-', $dosen->tanggal_lahir);
+        $dosen->tahun = $explode[0];
+        $dosen->bulan = $explode[1];
+        $dosen->tanggal = $explode[2];
 
         if (isset($_POST['nama'])) {
             $dosen->nama = $_POST['nama'];
             $dosen->tahun_masuk = $_POST['tahun_masuk'];
             $dosen->tempat_lahir = $_POST['tempat_lahir'];
-            $dosen->tanggal_lahir = $_POST['tanggal_lahir'];
+            $tanggal_lahir = $_POST['tahun'] . "-" . $_POST['bulan'] . "-" . $_POST['tanggal'];
+            $dosen->tanggal_lahir = $tanggal_lahir;
             $dosen->jenis_kelamin = $_POST['jenis_kelamin'];
             $dosen->alamat = $_POST['alamat'];
             $dosen->no_hp = $_POST['no_hp'];

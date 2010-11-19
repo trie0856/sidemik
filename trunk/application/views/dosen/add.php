@@ -34,7 +34,40 @@ add
     </tr>
     <tr>
         <td><?php echo Form::label('tanggal_lahir', 'Tanggal Lahir')?></td>
-        <td><?php echo Form::input('tanggal_lahir');?></td>
+        <td>
+        <?php
+        $date = array();
+        $date[0] = " ";
+        for ($i = 1; $i <= 31; ++$i) {
+            $date[$i] = $i;
+        }
+
+        $month = array(
+            " ",
+            "Januari",
+            "Februari",
+            "Maret",
+            "April",
+            "Mei",
+            "Juni",
+            "Juli",
+            "Agustus",
+            "Oktober",
+            "November",
+            "Desember"
+        );
+
+        $year = array();
+        $year[0] = " ";
+        for ($i = 1980; $i < date('Y'); ++$i) {
+            $year[$i] = $i;
+        }
+
+        echo Form::select('tanggal', $date, 0);
+        echo Form::select('bulan', $month, 0);
+        echo Form::select('tahun', $year, 0);
+        ?>
+        </td>
     </tr>
     <tr>
         <td><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
