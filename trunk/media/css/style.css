@@ -15,6 +15,15 @@ root {
     display: block;
 }
 
+a, a:visited, a:hover  {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 #wrap {
     width: 1000px;
     margin: 30px auto;
@@ -73,10 +82,38 @@ root {
     border: solid black 1px;
 }
 
+.link {
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom-style: dotted;
+    border-bottom-width: 3px;
+    border-bottom-color: #000000;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.link_2 {
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+}
+
 #content {
     float: left;
-    width: 796px;
+    width: 775px;
     border: solid black 1px;
+    padding: 10px;
 }
 
 #footer {

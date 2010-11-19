@@ -1,18 +1,19 @@
-<?php include 'header.php'?>
-<div id="navigator">
-    <?php
-    foreach ($links as $title => $value) {
-    echo HTML::anchor($value['link'], $title) . "<br />";
-    }
-    ?>
-</div>
+<?php
+include 'header.php';
+include 'navigator.php';
+?>
 <div id="middle_right">
     <div id="navigator_2">
-        | 
         <?php
-        foreach ($links_2 as $link => $value) {
-            echo HTML::anchor($link, $value['title']) . ' | ';
-        }
+        foreach ($links_2 as $link => $value) :
+        ?>
+        <div class="link_2">
+        <?php
+        echo HTML::anchor($link, $value['title']);
+        ?>
+        </div>
+        <?php
+        endforeach;
         ?>
     </div>
     <div id="content">
