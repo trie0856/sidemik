@@ -30,6 +30,33 @@ class Controller_Dosen extends Controller_Website {
 
     public function action_add() {
         $this->template->title = "Add Dosen";
+
+        if (isset($_POST['nip'])) {
+            $dosen = new Model_Dosen();
+            $user = new Model_User();
+
+            $user->username = $_POST['nip'];
+            $user->password = $_POST['password'];
+            $user->save();
+
+            // Masukkan role user
+            $user->add('roles', ORM::factory('role')->where('name', '=', 'login')->find());
+            $user->add('roles', ORM::factory('role')->where('name', '=', 'dosen')->find());
+
+            $dosen->nip = $_POST['nip'];
+            $dosen->user_id = $user->id;
+            $dosen->nama = $_POST['nama'];
+            $dosen->tahun_masuk = $_POST['tahun_masuk'];
+            $dosen->tempat_lahir = $_POST['tempat_lahir'];
+            $dosen->tanggal_lahir = $_POST['tanggal_lahir'];
+            $dosen->jenis_kelamin = $_POST['jenis_kelamin'];
+            $dosen->alamat = $_POST['alamat'];
+            $dosen->no_hp = $_POST['no_hp'];
+            $dosen->telp_rumah = $_POST['telp_rumah'];
+            $dosen->email = $_POST['email'];
+
+            $dosen->save();
+        }
     }
 
     public function action_edit() {
