@@ -77,13 +77,8 @@ class Controller_Mahasiswa extends Controller_Website {
     public function action_edit($nim) {
         $this->template->title = "Edit Mahasiswa";
 
-        $mahasiswa = new Model_Mahasiswa($nim);
-        $explode = explode('-', $mahasiswa->tanggal_lahir);
-        $mahasiswa->tahun = $explode[0];
-        $mahasiswa->bulan = $explode[1];
-        $mahasiswa->tanggal = $explode[2];
-
         if (isset($_POST['nama'])) {
+            $mahasiswa = new Model_Mahasiswa($nim);
             $mahasiswa->nama = $_POST['nama'];
             $mahasiswa->tempat_lahir = $_POST['tempat_lahir'];
             $tanggal_lahir = $_POST['tahun'] . "-" . $_POST['bulan'] . "-" . $_POST['tanggal'];
@@ -98,6 +93,12 @@ class Controller_Mahasiswa extends Controller_Website {
 
             $mahasiswa->save();
         }
+        
+        $mahasiswa = new Model_Mahasiswa($nim);
+        $explode = explode('-', $mahasiswa->tanggal_lahir);
+        $mahasiswa->tahun = $explode[0];
+        $mahasiswa->bulan = $explode[1];
+        $mahasiswa->tanggal = $explode[2];
         $this->template->content->mahasiswa = $mahasiswa;
     }
 
