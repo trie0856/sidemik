@@ -1,7 +1,7 @@
 <?php echo Form::open(NULL, array('method'=>'post'));?>
 <table>
     <tr>
-        <td><?php echo 'NIM';?></td>
+        <td width="170"><?php echo 'NIM';?></td>
         <td width="10">:</td>
         <td><?php echo $mahasiswa->nim;?></td>
     </tr>
@@ -27,19 +27,19 @@
         }
 
         $month = array(
-            " ",
-            "Januari",
-            "Februari",
-            "Maret",
-            "April",
-            "Mei",
-            "Juni",
-            "Juli",
-            "Agustus",
-            "September",
-            "Oktober",
-            "November",
-            "Desember"
+            "00" => " ",
+            "01" => "Januari",
+            "02" => "Februari",
+            "03" => "Maret",
+            "04" => "April",
+            "05" => "Mei",
+            "06" => "Juni",
+            "07" => "Juli",
+            "08" => "Agustus",
+            "09" => "September",
+            "10" => "Oktober",
+            "11" => "November",
+            "12" => "Desember"
         );
 
         $year = array();
