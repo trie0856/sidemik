@@ -1,11 +1,7 @@
-<?php include 'header.php'?>
-<div id="navigator">
-    <?php
-    foreach ($links as $title => $value) {
-    echo HTML::anchor($value['link'], $title) . "<br />";
-    }
-    ?>
-</div>
+<?php
+include 'header.php';
+include 'navigator.php';
+?>
 <div id="content">
     <?php
     echo $content;
