@@ -23,6 +23,9 @@ class Controller_Dosen extends Controller_Website {
 
     public function action_list() {
         $this->template->title = "List Dosen";
+        
+        $dosens = new Model_Dosen();
+        $this->template->content->dosens = $dosens->find_all();
     }
 
     public function action_add() {
@@ -35,6 +38,9 @@ class Controller_Dosen extends Controller_Website {
 
     public function action_delete() {
         $this->template->title = "Delete Dosen";
+
+        $dosen = new Model_Dosen($nip);
+        $dosen->delete();
     }
 
 } // End Dosen
