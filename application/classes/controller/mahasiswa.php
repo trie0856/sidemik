@@ -59,7 +59,8 @@ class Controller_Mahasiswa extends Controller_Website {
             $mahasiswa->user_id = $user->id;
             $mahasiswa->nama = $_POST['nama'];
             $mahasiswa->tempat_lahir = $_POST['tempat_lahir'];
-            $mahasiswa->tanggal_lahir = $_POST['tanggal_lahir'];
+            $tanggal_lahir = $_POST['tahun'] . "-" . $_POST['bulan'] . "-" . $_POST['tanggal'];
+            $mahasiswa->tanggal_lahir = $tanggal_lahir;
             $mahasiswa->jenis_kelamin = $_POST['jenis_kelamin'];
             $mahasiswa->email = $_POST['email'];
             $mahasiswa->alamat = $_POST['alamat'];
@@ -77,11 +78,16 @@ class Controller_Mahasiswa extends Controller_Website {
         $this->template->title = "Edit Mahasiswa";
 
         $mahasiswa = new Model_Mahasiswa($nim);
+        $explode = explode('-', $mahasiswa->tanggal_lahir);
+        $mahasiswa->tahun = $explode[0];
+        $mahasiswa->bulan = $explode[1];
+        $mahasiswa->tanggal = $explode[2];
 
         if (isset($_POST['nama'])) {
             $mahasiswa->nama = $_POST['nama'];
             $mahasiswa->tempat_lahir = $_POST['tempat_lahir'];
-            $mahasiswa->tanggal_lahir = $_POST['tanggal_lahir'];
+            $tanggal_lahir = $_POST['tahun'] . "-" . $_POST['bulan'] . "-" . $_POST['tanggal'];
+            $mahasiswa->tanggal_lahir = $tanggal_lahir;
             $mahasiswa->jenis_kelamin = $_POST['jenis_kelamin'];
             $mahasiswa->email = $_POST['email'];
             $mahasiswa->alamat = $_POST['alamat'];
