@@ -168,7 +168,7 @@ class Controller_Website extends Controller_Template {
             $mahasiswa = new Model_Mahasiswa($nim);
             Session::instance()->set('user_id', $mahasiswa->user_id);
         } else if ($key == 'dosen/profil'){
-            $nim = $request->param('id');
+            $nip = $request->param('id');
             Session::instance()->set('nip', $nip);
             $dosen = new Model_Dosen($nip);
             Session::instance()->set('user_id', $dosen->user_id);
