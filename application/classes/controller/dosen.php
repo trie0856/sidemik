@@ -59,8 +59,25 @@ class Controller_Dosen extends Controller_Website {
         }
     }
 
-    public function action_edit() {
+    public function action_edit($nip) {
         $this->template->title = "Edit Dosen";
+
+        $dosen = new Model_Dosen($nip);
+
+        if (isset($_POST['nama'])) {
+            $dosen->nama = $_POST['nama'];
+            $dosen->tahun_masuk = $_POST['tahun_masuk'];
+            $dosen->tempat_lahir = $_POST['tempat_lahir'];
+            $dosen->tanggal_lahir = $_POST['tanggal_lahir'];
+            $dosen->jenis_kelamin = $_POST['jenis_kelamin'];
+            $dosen->alamat = $_POST['alamat'];
+            $dosen->no_hp = $_POST['no_hp'];
+            $dosen->telp_rumah = $_POST['telp_rumah'];
+            $dosen->email = $_POST['email'];
+
+            $dosen->save();
+        }
+        $this->template->content->dosen = $dosen;
     }
 
     public function action_delete() {
