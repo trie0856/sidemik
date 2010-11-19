@@ -14,7 +14,27 @@ profil
     </tr>
     <tr>
         <td><?php echo 'Tanggal Lahir';?></td>
-        <td><?php echo $mahasiswa->tanggal_lahir;?></td>
+        <td>
+        <?php
+        $month = array(
+            " ",
+            "Januari",
+            "Februari",
+            "Maret",
+            "April",
+            "Mei",
+            "Juni",
+            "Juli",
+            "Agustus",
+            "September",
+            "Oktober",
+            "November",
+            "Desember"
+        );
+        $result = explode('-', $mahasiswa->tanggal_lahir);
+        echo $result[2] . " " . $month[$result[1]] . " " . $result[0];
+        ?>
+        </td>
     </tr>
     <tr>
         <td><?php echo 'Jenis Kelamin';?></td>
