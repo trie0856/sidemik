@@ -86,5 +86,5 @@ $mk_per_tingkat = $kurikulum[$tingkat];
 <?php
 }
 ?>
-<?php echo Form::submit('submit', 'Ambil') ?>
+<?php echo Form::button('submit', 'Ambil') ?>
 <?php echo Form::close(); ?>

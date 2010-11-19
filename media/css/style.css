@@ -21,11 +21,6 @@ root {
 
 a, a:visited, a:hover  {
     color: black;
-    text-decoration: none;
-}
-
-a, a:hover {
-    text-decoration: underline;
 }
 
 #wrap {
@@ -47,7 +42,7 @@ a, a:hover {
     border-left-color: green;
     border-bottom-color: green;
     border-top-color: green;
-    background-color: yellow;
+    background-color: #c6bbbb;
 }
 
 #header {
