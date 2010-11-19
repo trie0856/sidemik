@@ -63,6 +63,9 @@ class Controller_User extends Controller_Website {
         if (isset($_POST['username'])) {
             $user = new Model_User();
             $status = $user->login($_POST, 'front/index');
+            if (!$status) {
+                $this->template->content->status = $status;
+            }
         }
     }
 
