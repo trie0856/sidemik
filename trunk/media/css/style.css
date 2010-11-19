@@ -116,6 +116,15 @@ a:hover {
     padding: 10px;
 }
 
+.error {    
+    background-color: #ff0000;
+    color: #ffffff;
+    margin: 5px;
+    padding: 5px;
+    width: 300px;
+    text-align: center;
+}
+
 #footer {
     width: 1000px;
     border: solid black 1px;
