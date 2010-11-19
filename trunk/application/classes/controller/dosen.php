@@ -21,6 +21,16 @@ class Controller_Dosen extends Controller_Website {
         $this->template->title = "Dosen";
     }
 
+    public function action_profil($nip) {
+        $auth = Auth::instance();
+
+        $this->template->title = "Profil Dosen";
+        $dosen = new Model_Dosen($nip);
+        $referensi_jenis_kelamin = array('-1' => '', '0' => 'Wanita', '1' => 'Pria');
+        $this->template->content->dosen = $dosen;
+        $this->template->content->referensi_jenis_kelamin = $referensi_jenis_kelamin;
+    }
+
     public function action_list() {
         $this->template->title = "List Dosen";
         
