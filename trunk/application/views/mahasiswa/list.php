@@ -5,7 +5,6 @@
             <th>No</th>
             <th width="100">NIM</th>
             <th width="200">Nama</th>
-            <th>Keterangan</th>
         </tr>
     </thead>
     <tbody>
@@ -17,7 +16,6 @@
                 <td><?php echo $no?></td>
                 <td><?php echo $mahasiswa->nim?></td>
                 <td><?php echo Html::anchor("/mahasiswa/profil/$mahasiswa->nim",$mahasiswa->nama);?></td>
-                <td><?php echo Html::anchor("/mahasiswa/edit/$mahasiswa->nim",'Edit');?></td>
             </tr>
         <?php
         ++$no;

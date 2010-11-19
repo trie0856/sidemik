@@ -24,6 +24,6 @@
         </tbody>
     </table>
     <br />
-    <?php echo Form::submit('simpan', 'Simpan')?>
+    <?php echo Form::button('simpan', 'Simpan')?>
     <?php echo Form::close();?>
 </fieldset>

@@ -24,7 +24,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2"><?php echo Form::submit('pilih', 'Pilih') ?></td>
+            <td colspan="2"><?php echo Form::button('pilih', 'Pilih') ?></td>
         </tr>
     </table>
 </fieldset>
@@ -52,7 +52,7 @@ echo Form::open(NULL, array('method' => 'post'));
         </thead>
         <tfoot>
             <tr>
-                <td colspan="4"><?php echo Form::submit('simpan', 'Simpan')?></td>
+                <td colspan="4"><?php echo Form::button('simpan', 'Simpan')?></td>
             </tr>
         </tfoot>
         <tbody>
