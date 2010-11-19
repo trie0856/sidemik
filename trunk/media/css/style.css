@@ -11,6 +11,10 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
+body {
+    
+}
+
 root { 
     display: block;
 }
@@ -20,14 +24,30 @@ a, a:visited, a:hover  {
     text-decoration: none;
 }
 
-a:hover {
+a, a:hover {
     text-decoration: underline;
 }
 
 #wrap {
+    font-size: 16px;
     width: 1000px;
     margin: 30px auto;
     border: solid black 1px;
+}
+
+#content input[type="text"] {
+    
+    margin: 0px;
+    padding: 0px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    border-right-color: green;
+    border-left-color: green;
+    border-bottom-color: green;
+    border-top-color: green;
+    background-color: yellow;
 }
 
 #header {
