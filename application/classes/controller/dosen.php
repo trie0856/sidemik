@@ -63,13 +63,8 @@ class Controller_Dosen extends Controller_Website {
     public function action_edit($nip) {
         $this->template->title = "Edit Dosen";
 
-        $dosen = new Model_Dosen($nip);
-        $explode = explode('-', $dosen->tanggal_lahir);
-        $dosen->tahun = $explode[0];
-        $dosen->bulan = $explode[1];
-        $dosen->tanggal = $explode[2];
-
         if (isset($_POST['nama'])) {
+            $dosen = new Model_Dosen($nip);
             $dosen->nama = $_POST['nama'];
             $dosen->tahun_masuk = $_POST['tahun_masuk'];
             $dosen->tempat_lahir = $_POST['tempat_lahir'];
@@ -83,6 +78,12 @@ class Controller_Dosen extends Controller_Website {
 
             $dosen->save();
         }
+        
+        $dosen = new Model_Dosen($nip);
+        $explode = explode('-', $dosen->tanggal_lahir);
+        $dosen->tahun = $explode[0];
+        $dosen->bulan = $explode[1];
+        $dosen->tanggal = $explode[2];
         $this->template->content->dosen = $dosen;
     }
 
