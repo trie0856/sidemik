@@ -62,6 +62,6 @@ $mk_per_tingkat = $kurikulum[$tingkat];
     ?>
 </table>
 <br />
-<?
+<?php
 }
 ?>
