@@ -191,9 +191,9 @@ class Controller_Website extends Controller_Template {
                 $mahasiswa = new Model_Mahasiswa(array('user_id' => $user->id));
                 $greeting = "> Selamat Datang, $mahasiswa->nama";
             }
-            else if ($auth->logged_in('dosen')) // jika yang login
+            else if ($auth->logged_in('dosen')) // jika yang login dosen
             {
-                $dosen = new Model_Dosen(array('user_id', $user->id));
+                $dosen = new Model_Dosen(array('user_id' => $user->id));
                 $greeting = "> Selamat Datang, $dosen->nama";
             }
             else //jika yang login tata usah atau admin
