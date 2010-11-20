@@ -59,7 +59,11 @@ class Controller_Website extends Controller_Template {
 
             if(Auth::instance()->logged_in(array('admin', 'tata_usaha'))) {
                 $this->admin_tu_func_set_session();
-                $links = Kohana::config('link_admin_tu');
+                if (Session::instance()->get('access') == 'mahasiswa') {
+                    $links = Kohana::config('linkmahasiswa_admin_tu');
+                } else {
+                    $links = Kohana::config('linkdosen_admin_tu');
+                }
                 $links = $this->admin_tu_filter_links($links);
                 $this->admin_tu_func_add_id_for_links($links);
                 $this->template->links_2 = $links;
@@ -100,7 +104,6 @@ class Controller_Website extends Controller_Template {
         } else if (Auth::instance()->logged_in('dosen')) {
             $dosen = new Model_Dosen(array('user_id' => $user_id));
             $links["Profil Dosen"]["link"] .= '/' . $dosen->nip;
-            $links["Input Nilai"]["link"] .= '/' . $dosen->nip;
             $links["Jadwal Mengajar"]["link"] .= '/' . $dosen->nip;
             $links["Jadwal Kosong"]["link"] .= '/' . $dosen->nip;
         }
@@ -112,13 +115,14 @@ class Controller_Website extends Controller_Template {
      */
     public function check_for_need_two_navigation_template() {
         if (Auth::instance()->logged_in(array('admin', 'tata_usaha'))) {
-            $links = Kohana::config('link_admin_tu');
+            $links = Kohana::config('linkmahasiswa_admin_tu');
+            $links_2 = Kohana::config('linkdosen_admin_tu');
             $request = Request::instance();
             $key = $request->controller . '/' . $request->action;
 
             if ($key == 'user/edit' && $request->param('id') == Auth::instance()->get_user()->id) {
                 // do nothing
-            } else if (array_key_exists($key, $links)) {
+            } else if (array_key_exists($key, $links) || array_key_exists($key, $links_2)) {
                 $this->template = 'template/two_navigation';
             }
         }
@@ -154,7 +158,13 @@ class Controller_Website extends Controller_Template {
             if ($link == 'user/edit') {
                 $newlinks[$link . '/' . Session::instance()->get('user_id')] = $links[$link];
             } else {
-                $newlinks[$link . '/' . Session::instance()->get('nim')] = $links[$link];
+                $get;
+                if(Session::instance()->get('access') == 'mahasiswa') {
+                    $get = 'nim';
+                } else {
+                    $get = 'nip';
+                }
+                $newlinks[$link . '/' . Session::instance()->get($get)] = $links[$link];
             }
         }
 
@@ -170,11 +180,13 @@ class Controller_Website extends Controller_Template {
         $key = $request->controller . '/' . $request->action;
         if ($key == 'mahasiswa/profil') {
             $nim = $request->param('id');
+            Session::instance()->set('access', 'mahasiswa');
             Session::instance()->set('nim', $nim);
             $mahasiswa = new Model_Mahasiswa($nim);
             Session::instance()->set('user_id', $mahasiswa->user_id);
         } else if ($key == 'dosen/profil'){
             $nip = $request->param('id');
+            Session::instance()->set('access', 'dosen');
             Session::instance()->set('nip', $nip);
             $dosen = new Model_Dosen($nip);
             Session::instance()->set('user_id', $dosen->user_id);
