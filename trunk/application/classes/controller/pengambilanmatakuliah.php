@@ -204,7 +204,4 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
         return ($tahun - $tahun_masuk) * 2 + $semester;
     }
 
-    public function action_jadwal($nim) {
-        $this->template->title = "Jadwal Kuliah";
-    }
 } // End Pengambilan matakuliah

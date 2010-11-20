@@ -23,7 +23,7 @@ return array
         'role'      => array('dosen', 'admin')
     ),
     'Jadwal Mengajar'       => array (
-        'link'      => 'dosen/jawdalmengajar',
+        'link'      => 'jadwal/mengajar',
         'role'      => array('dosen')
     ),
     'Jadwal Kosong'         => array (
@@ -44,7 +44,7 @@ return array
         'role'      => array('mahasiswa')
     ),
     'Jadwal Kuliah'      => array (
-        'link'      => 'pengambilanmatakuliah/jadwal',
+        'link'      => 'jadwal/kuliah',
         'role'      => array('mahasiswa')
     ),
 
