@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die ('No direct script access.');
 
-// Link untuk tambahan untuk admin dan tata usaha
+// Link untuk tambahan untuk admin dan tata usaha jika mengakses mahasiswa
 return array (
     'mahasiswa/profil'                      => array (
         'title'     => 'Profil Mahasiswa',
@@ -32,7 +32,7 @@ return array (
         'show'      => TRUE,
         'role'      => array('admin', 'tata_usaha')
     ),
-    'pengambilanmatakuliah/jadwal'    => array (
+    'jadwal/kuliah'                         => array (
         'title'     => 'Jadwal Kuliah',
         'show'      => TRUE,
         'role'      => array('admin', 'tata_usaha')
