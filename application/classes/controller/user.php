@@ -37,7 +37,26 @@ class Controller_User extends Controller_Website {
             $user->username = $_POST['username'];
             $user->password = $_POST['password'];
             $user->save();
+
+            // Masukkan role user
+            $user->add('roles', ORM::factory('role', $_POST['role']));
+            $role = new Model_Role($_POST['role']);
+            if ($role->name != 'login') {
+                $user->add('roles', ORM::factory('role')->where('name', '=', 'login')->find());
+            }
         }
+
+        $select_role = array();
+        $roles = new Model_Role();
+        $roles = $roles->find_all();
+
+        foreach($roles as $role ) {
+            if ($role->name != 'dosen' && $role->name != 'mahasiswa') {
+                $select_role[$role->id] = $role->name;
+            }
+        }
+
+        $this->template->content->select_role = $select_role;
     }
 
     public function action_edit($id) {

@@ -10,6 +10,10 @@ add
         <td><?php echo Form::input('password');?></td>
     </tr>
     <tr>
+        <td><?php echo Form::label('role', 'Role'); ?></td>
+        <td><?php echo Form::select('role', $select_role); ?></td>
+    </tr>
+    <tr>
         <td><?php echo Form::button('submit', 'Tambah')?></td>
         <td></td>
     </tr>
