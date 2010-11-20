@@ -28,6 +28,8 @@ class Controller_Mahasiswa extends Controller_Website {
 
         $this->template->title = "Profil Mahasiswa";
         $mahasiswa = new Model_Mahasiswa($nim);
+        $mahasiswa->semester = Sidemik::getSemester($nim);
+        $mahasiswa->ipk = Sidemik::calculateIPK($nim);
         $referensi_jenis_kelamin = array('-1' => '', '0' => 'Wanita', '1' => 'Pria');
         $this->template->content->mahasiswa = $mahasiswa;
         $this->template->content->referensi_jenis_kelamin = $referensi_jenis_kelamin;

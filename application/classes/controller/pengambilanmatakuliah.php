@@ -65,11 +65,14 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
 
     public function action_ksm($nim) {
         $this->template->title = "KSM";
+
         $matakuliahs = array();
+        $mahasiswa = new Model_Mahasiswa($nim);
+        $semester = Sidemik::getSemester($nim);
         $pengambilanmks = new Model_Pengambilanmk();
         $pengambilanmks = $pengambilanmks
                             ->where('nim_mahasiswa', '=', $nim)
-                            ->where('semester', '=', 2)
+                            ->where('semester', '=', $semester)
                             ->find_all();
         foreach ($pengambilanmks as $pengambilanmk) {
             $kode = $pengambilanmk->kode_kuliah;
@@ -78,6 +81,8 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
         }
 
         $this->template->content->matakuliahs = $matakuliahs;
+        $this->template->content->semester = $semester;
+        $this->template->content->mahasiswa = $mahasiswa;
     }
 
     public function action_transkrip($nim) {
@@ -92,8 +97,8 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
         $semester = new Model_Config('semester');
         $semester = $semester->value;
         $transkrip = array();
-        //$batas = $this->tahun_semester_to_semester($tahun, $semester, $mahasiswa->tahun_masuk);
-        $batas = 6;
+        $batas = Sidemik::getSemester($nim);
+        $total_sks = 0;
 
         // init;
         for($i = 1; $i <= $batas; ++$i) {
@@ -107,6 +112,7 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
             } else {
                 $nilai = $pmk->nilai;
             }
+            $total_sks += $matakuliah->jumlah_sks;
             $transkrip[$pmk->semester][] = array(
                 'kode_matakuliah'   => $pmk->kode_kuliah,
                 'nama_matakuliah'   => $matakuliah->nama,
@@ -116,6 +122,9 @@ class Controller_Pengambilanmatakuliah extends Controller_Website {
         }
 
         $this->template->content->transkrip = $transkrip;
+        $this->template->content->mahasiswa = $mahasiswa;
+        $this->template->content->total_sks = $total_sks;
+        $this->template->content->batas = $batas;
     }
 
     public function action_inputnilai($kode_mata_kuliah = NULL, $tahun = NULL, $semester = NULL) {
