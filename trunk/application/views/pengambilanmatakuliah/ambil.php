@@ -7,12 +7,26 @@ for ($i = 1; $i < 9; ++$i) {
 ?>
 
 <?php echo Form::open(NULL, array('method' => 'post'))?>
-<table align="center">
+<table style="font-weight: bold; margin-left: 30px">
     <tr>
-        <td>Semester</td>
-        <td><?php echo Form::select('semester_ambil', $semester_ambils, 2);?></td>
+        <td>NIM</td>
+        <td>:</td>
+        <td><?php echo $mahasiswa->nim; ?></td>
+    </tr>
+    <tr>
+        <td>Nama</td>
+        <td>:</td>
+        <td><?php echo $mahasiswa->nama; ?></td>
     </tr>
 </table>
+<br />
+<table align="center">
+    <tr>
+        <td>Semester&nbsp;</td>
+        <td width="100"><?php echo Form::select('semester_ambil', $semester_ambils, Sidemik::getSemester($mahasiswa->nim));?></td>
+    </tr>
+</table>
+<br />
 <?php
 for ($tingkat = 1; $tingkat<=3; ++$tingkat) {
 $mk_per_tingkat = $kurikulum[$tingkat];
@@ -86,5 +100,5 @@ $mk_per_tingkat = $kurikulum[$tingkat];
 <?php
 }
 ?>
-<?php echo Form::button('submit', 'Ambil') ?>
+<?php echo Form::button('submit', 'Ambil', array('style' => 'margin-left : 360px;')) ?>
 <?php echo Form::close(); ?>

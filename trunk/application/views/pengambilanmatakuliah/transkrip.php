@@ -1,56 +1,46 @@
+<table style="font-weight: bold">
+    <tr>
+        <td width="120">NIM</td>
+        <td>:</td>
+        <td><?php echo $mahasiswa->nim;?></td>
+    </tr>
+    <tr>
+        <td>Nama</td>
+        <td>:</td>
+        <td><?php echo $mahasiswa->nama;?></td>
+    </tr>
+    <tr>
+        <td>IPK / SKS</td>
+        <td>:</td>
+        <td><?php echo Sidemik::calculateIPK($mahasiswa->nim) . " / " . $total_sks;?></td>
+    </tr>
+</table>
+<br />
 <?php
-for($i = 1; $i <=3; ++$i) {
-    $ganjil = ($i-1) * 2 + 1;
-    $genap  = $ganjil + 1;
+for($i = 1; $i <=$batas; ++$i) {
+$jum_sks = 0;
 ?>
-<table border="1" align="center">
+<table border="1">
     <thead>
         <tr>
-            <th colspan="4" width="350">Semester <?php echo $ganjil;?></th>
-            <th colspan="4" width="350">Semester <?php echo $genap;?></th>
+            <th colspan="4" width="350">Semester <?php echo $i;?></th>
         </tr>
         <tr>
-            <th>Kode</th>
-            <th>Nama Mata Kuliah</th>
-            <th>SKS</th>
-            <th>Nilai</th>
-            <th>Kode</th>
-            <th>Nama Mata Kuliah</th>
-            <th>SKS</th>
-            <th>Nilai</th>
+            <th width="70">Kode</th>
+            <th width="250">Nama Mata Kuliah</th>
+            <th width="70">SKS</th>
+            <th width="70">Nilai</th>
         </tr>
     </thead>
-    <?php
-    $count_ganjil   = count($transkrip[$ganjil]);
-    $count_genap    = count($transkrip[$genap]);
-    $max            = max(array($count_ganjil, $count_genap));
-    $t_ganjil       = $transkrip[$ganjil];
-    $t_genap        = $transkrip[$genap];
-    ?>
     <tbody>
         <?php
-        for($j = 0; $j < $max; ++$j) {
+        foreach($transkrip[$i] as $row) {
         ?>
         <tr>
             <?php
-            if (isset($t_ganjil[$j])) {
-                foreach($t_ganjil[$j] as $row) {
-                    echo "<td>" . $row . "</td>";
-                }
-            } else {
-                for($k = 1; $k <= 4; ++$k) {
-                    echo "<td>&nbsp;</td>";
-                }
-            }
-
-            if (isset($t_genap[$j])) {
-                foreach($t_genap[$j] as $row) {
-                    echo "<td>" . $row . "</td>";
-                }
-            } else {
-                for($k = 1; $k <= 4; ++$k) {
-                    echo "<td>&nbsp;</td>";
-                }
+            $jum_sks += $row['sks'];
+            foreach($row as $td) {
+                echo "<td>$td</td>";
             }
             ?>
         </tr>
@@ -58,7 +48,13 @@ for($i = 1; $i <=3; ++$i) {
         }
         ?>
     </tbody>
+    <tfoot>
+        <tr>
+            <th align="left" colspan="4">IP / SKS : <?php echo Sidemik::calculateIP($mahasiswa->nim, $i) . " / " . $jum_sks ?></th>
+        </tr>
+    </tfoot>
 </table>
+<br />
 <?php
 }
 ?>

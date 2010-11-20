@@ -1,11 +1,11 @@
 <fieldset style="width: 300px; margin-left: auto; margin-right: auto;">
     <legend>Status Pembayaran</legend>
     <?php echo Form::open(NULL);?>
-    <table border="1">
+    <table border="1" style="text-align: center">
         <thead>
             <tr>
-                <th>Semester</th>
-                <th>Sudah Membayar</th>
+                <th width="150">Semester</th>
+                <th width="150">Sudah Membayar</th>
             </tr>
         </thead>
         <tbody>

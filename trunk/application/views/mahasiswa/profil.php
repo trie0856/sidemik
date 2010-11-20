@@ -75,4 +75,14 @@
         <td>:</td>
         <td><?php echo $mahasiswa->tahun_masuk;?></td>
     </tr>
+    <tr>
+        <td><?php echo 'Semester';?></td>
+        <td>:</td>
+        <td><?php echo $mahasiswa->semester;?></td>
+    </tr>
+    <tr>
+        <td><?php echo 'IPK';?></td>
+        <td>:</td>
+        <td><?php echo $mahasiswa->ipk;?></td>
+    </tr>
 </table>
