@@ -97,6 +97,12 @@ class Controller_Website extends Controller_Template {
             $links["KSM"]["link"] .= '/' . $mahasiswa->nim;
             $links["Transkrip Akademik"]["link"] .= '/' . $mahasiswa->nim;
             $links["Jadwal Kuliah"]["link"] .= '/' . $mahasiswa->nim;
+        } else if (Auth::instance()->logged_in('dosen')) {
+            $dosen = new Model_Dosen(array('user_id' => $user_id));
+            $links["Profil Dosen"]["link"] .= '/' . $dosen->nip;
+            $links["Input Nilai"]["link"] .= '/' . $dosen->nip;
+            $links["Jadwal Mengajar"]["link"] .= '/' . $dosen->nip;
+            $links["Jadwal Kosong"]["link"] .= '/' . $dosen->nip;
         }
     }
 
