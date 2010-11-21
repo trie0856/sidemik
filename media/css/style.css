@@ -187,8 +187,7 @@ a, a:visited, a:hover  {
 
 #content {
     float: left;
-    width: 780px;
-    padding: 10px;
+    width: 800px;
     background-color: #ccccff;
     -moz-border-radius: 15px;
     -border-radius: 15px;
@@ -231,7 +230,7 @@ a, a:visited, a:hover  {
     box-shadow: 10px 10px 5px #888;
 }
 
-#content input[type="text"] {
+input[type="text"] {
 
     margin: 0px;
     padding: 0px;

@@ -1,5 +1,11 @@
-edit
-<?php echo Form::open(NULL, array('method'=>'post'));?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#edit_mata_kuliah_form").validate();
+    });
+</script>
+
+<h2>Edit Mata Kuliah</h2>
+<?php echo Form::open(NULL, array('method'=>'post', 'id'=>'edit_mata_kuliah_form'));?>
 <table>
     <tr>
         <td><?php echo 'Kode';?></td>
@@ -7,11 +13,11 @@ edit
     </tr>
     <tr>
         <td><?php echo Form::label('nama', 'Nama Mata Kuliah')?></td>
-        <td><?php echo Form::input('nama', $matakuliah->nama);?></td>
+        <td><?php echo Form::input('nama', $matakuliah->nama, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('jumlah_sks', 'Jumlah SKS')?></td>
-        <td><?php echo Form::select('jumlah_sks', $select_jumlah_sks, $matakuliah->jumlah_sks);?></td>
+        <td><?php echo Form::select('jumlah_sks', $select_jumlah_sks, $matakuliah->jumlah_sks, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('deskripsi', 'Deskripsi')?></td>
@@ -19,7 +25,7 @@ edit
     </tr>
     <tr>
         <td><?php echo Form::label('tingkat', 'Tingkat')?></td>
-        <td><?php echo Form::select('tingkat', array('0'=>'','1'=>'1', '2'=>'2', '3'=>'3'), $matakuliah->tingkat);?></td>
+        <td><?php echo Form::select('tingkat', array(''=>' ','1'=>'1', '2'=>'2', '3'=>'3'), $matakuliah->tingkat, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('semester_buka', 'Semester Buka')?></td>
