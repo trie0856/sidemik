@@ -54,10 +54,11 @@ $jum_sks = 0;
     </tbody>
     <tfoot>
         <tr class="pink">
-            <td align="left" colspan="4">IP / SKS : <?php echo Sidemik::calculateIP($mahasiswa->nim, $i) . " / " . $jum_sks ?></td>
+            <td align="left" colspan="4"><i><b>IP / SKS : <?php echo Sidemik::calculateIP($mahasiswa->nim, $i) . " / " . $jum_sks ?></b></i></td>
         </tr>
     </tfoot>
 </table>
+<br />
 <br />
 <?php
 }
