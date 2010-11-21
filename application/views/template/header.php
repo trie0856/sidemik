@@ -10,6 +10,11 @@ and open the template in the editor.
 
         <?php foreach ($styles as $file => $type) echo HTML::style($file, array('media' => $type)), "\n" ?>
         <?php foreach ($scripts as $file) echo HTML::script($file), "\n" ?>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+            });
+        </script>
 
     </head>
     <body>

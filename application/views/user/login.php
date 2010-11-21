@@ -1,6 +1,6 @@
 <?php echo Form::open(NULL, array('method' => 'post'))?>
     <?php if(isset($status) && $status == FALSE) : ?>
-    <div class="error">
+    <div class="error_login">
         username dan password tidak cocok.
     </div>
     <?php endif;?>

@@ -190,7 +190,7 @@ a, a:visited, a:hover  {
     background-color: #c6bbbb;
 }
 
-.error {    
+.error_login {
     background-color: #ff0000;
     color: #ffffff;
     margin: 5px;

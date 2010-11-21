@@ -49,8 +49,10 @@ class Controller_Website extends Controller_Template {
         parent::after();
 
         if ($this->auto_render) {
-            $styles = array('media/css/style.css' => 'screen');
-            $this->template->styles = array_merge($this->template->styles, $styles);
+            $styles                     = array('media/css/style.css' => 'screen');
+            $scripts                    = array('media/js/jquery-1.4.4.js', 'media/js/jquery.validate.min.js');
+            $this->template->styles     = array_merge($this->template->styles, $styles);
+            $this->template->scripts    = array_merge($this->template->scripts, $scripts);;
 
             $links  = Kohana::config('link');
             $this->add_id_to_some_links($links);
