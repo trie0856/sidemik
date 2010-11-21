@@ -28,9 +28,14 @@ table {
 }
 
 #wrap {
+    padding : 10px;
     font-size: 16px;
     width: 1000px;
     margin: 30px auto;
+    border-color: #000000;
+    border-style: hidden;
+    border-width: 2px;
+    -moz-box-shadow: 0px 0px 15px #888;
 }
 
 #header {
@@ -220,8 +225,6 @@ table {
     background-color: rgb(236,235,235);
     -moz-border-radius: 15px;
     -border-radius: 15px;
-/*    -moz-box-shadow: 10px 10px 5px #888;
-    box-shadow: 10px 10px 5px #888;*/
 }
 
 #content_2column {
