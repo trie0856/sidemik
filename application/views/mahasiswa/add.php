@@ -89,7 +89,7 @@
     </tr>
     <tr>
         <td><?php echo Form::label('alamat', 'Alamat')?></td>
-        <td><?php echo Form::input('alamat');?></td>
+        <td><?php echo Form::input('alamat', NULL, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('no_hp', 'Nomor Handphone')?></td>
@@ -120,7 +120,7 @@
         <td><?php echo Form::select('tahun_masuk', $tahun_masuks, $curyear);?></td>
     </tr>
     <tr>
-        <td><?php echo Form::submit('tambah', 'Tambah', array('class' => 'submit'))?></td>
+        <td><?php echo Form::button('tambah', 'Tambah')?></td>
         <td></td>
     </tr>
 </table>

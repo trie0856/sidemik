@@ -1,4 +1,10 @@
-<?php echo Form::open(NULL, array('method'=>'post'));?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#edit_mahasiswa").validate();
+    });
+</script>
+
+<?php echo Form::open(NULL, array('method'=>'post', 'id' => 'edit_mahasiswa'));?>
 <table>
     <tr>
         <td width="170"><?php echo 'NIM';?></td>
@@ -8,12 +14,12 @@
     <tr>
         <td><?php echo Form::label('nama', 'Nama')?></td>
         <td>:</td>
-        <td><?php echo Form::input('nama', $mahasiswa->nama);?></td>
+        <td><?php echo Form::input('nama', $mahasiswa->nama, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('tempat_lahir', 'Tempat Lahir')?></td>
         <td>:</td>
-        <td><?php echo Form::input('tempat_lahir', $mahasiswa->tempat_lahir);?></td>
+        <td><?php echo Form::input('tempat_lahir', $mahasiswa->tempat_lahir, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('tanggal_lahir', 'Tanggal Lahir')?></td>
@@ -21,13 +27,13 @@
         <td>
         <?php
         $date = array();
-        $date[0] = " ";
+        $date[""] = " ";
         for ($i = 1; $i <= 31; ++$i) {
             $date[$i] = $i;
         }
 
         $month = array(
-            "00" => " ",
+            "" => " ",
             "01" => "Januari",
             "02" => "Februari",
             "03" => "Maret",
@@ -43,31 +49,31 @@
         );
 
         $year = array();
-        $year[0] = " ";
+        $year[""] = " ";
         for ($i = 1980; $i < date('Y'); ++$i) {
             $year[$i] = $i;
         }
 
-        echo Form::select('tanggal', $date, $mahasiswa->tanggal);
-        echo Form::select('bulan', $month, $mahasiswa->bulan);
-        echo Form::select('tahun', $year, $mahasiswa->tahun);
+        echo Form::select('tanggal', $date, $mahasiswa->tanggal, array('class' => 'required'));
+        echo Form::select('bulan', $month, $mahasiswa->bulan, array('class' => 'required'));
+        echo Form::select('tahun', $year, $mahasiswa->tahun, array('class' => 'required'));
         ?>
         </td>
     </tr>
     <tr>
         <td><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
         <td>:</td>
-        <td><?php echo Form::select('jenis_kelamin', array('-1' => '', '0' => 'Wanita', '1' => 'Pria'), $mahasiswa->jenis_kelamin);?></td>
+        <td><?php echo Form::select('jenis_kelamin', array('' => '', '0' => 'Wanita', '1' => 'Pria'), $mahasiswa->jenis_kelamin, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('email', 'Email');?></td>
         <td>:</td>
-        <td><?php echo Form::input('email', $mahasiswa->email);?></td>
+        <td><?php echo Form::input('email', $mahasiswa->email, array('class' => 'email'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('alamat', 'Alamat')?></td>
         <td>:</td>
-        <td><?php echo Form::input('alamat', $mahasiswa->alamat);?></td>
+        <td><?php echo Form::input('alamat', $mahasiswa->alamat, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('no_hp', 'Nomor Handphone')?></td>
@@ -77,7 +83,7 @@
     <tr>
         <td><?php echo Form::label('nama_ayah', 'Nama Ayah')?></td>
         <td>:</td>
-        <td><?php echo Form::input('nama_ayah', $mahasiswa->nama_ayah);?></td>
+        <td><?php echo Form::input('nama_ayah', $mahasiswa->nama_ayah, array('class' => 'required'));?></td>
     </tr>
 
     <tr>
