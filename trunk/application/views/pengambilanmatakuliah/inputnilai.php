@@ -1,3 +1,5 @@
+<h2>Input Nilai</h2>
+
 <?php echo Form::open(NULL, array('method' => 'post'))?>
 <fieldset>
     <legend>Pilih Matakuliah dan Tahun</legend>

@@ -60,7 +60,7 @@ class Controller_User extends Controller_Website {
     }
 
     public function action_edit($id) {
-        $this->template->title = "Edit User";
+        $this->template->title = "Ubah Password";
         $user = new Model_User($id);
 
         if (isset($_POST['password'])) {

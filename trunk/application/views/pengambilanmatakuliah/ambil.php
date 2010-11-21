@@ -1,3 +1,5 @@
+<h2>Pengambilan Mata Kuliah</h2>
+
 <?php
 $semester_ambils = array();
 $semester_ambil = 2;
@@ -7,7 +9,7 @@ for ($i = 1; $i < 9; ++$i) {
 ?>
 
 <?php echo Form::open(NULL, array('method' => 'post'))?>
-<table style="font-weight: bold; margin-left: 30px">
+<table style="font-weight: bold">
     <tr>
         <td>NIM</td>
         <td>:</td>
@@ -31,21 +33,21 @@ for ($i = 1; $i < 9; ++$i) {
 for ($tingkat = 1; $tingkat<=3; ++$tingkat) {
 $mk_per_tingkat = $kurikulum[$tingkat];
 ?>
-<table border="1" align="center">
+<table class="sidemik_table" align="center">
     <thead>
-        <tr>
-            <th colspan="4" width="350">Semester <?php echo ($tingkat-1)*2 + 1;?></th>
-            <th colspan="4" width="350">Semester <?php echo ($tingkat-1)*2 + 2;?></th>
+        <tr class="pink_gelap">
+            <td colspan="4" width="375">Semester <?php echo ($tingkat-1)*2 + 1;?></td>
+            <td colspan="4" width="375">Semester <?php echo ($tingkat-1)*2 + 2;?></td>
         </tr>
         <tr>
-            <th>Kode</th>
-            <th>Nama Matakuliah</th>
-            <th>SKS</th>
-            <th>Ambil</th>
-            <th>Kode</th>
-            <th>Nama Matakuliah</th>
-            <th>SKS</th>
-            <th>Ambil</th>
+            <td>Kode</td>
+            <td>Nama Matakuliah</td>
+            <td>SKS</td>
+            <td>Ambil</td>
+            <td>Kode</td>
+            <td>Nama Matakuliah</td>
+            <td>SKS</td>
+            <td>Ambil</td>
         </tr>
     </thead>
     
@@ -71,7 +73,7 @@ $mk_per_tingkat = $kurikulum[$tingkat];
     <?php
     for ($i=0; $i<$max; ++$i) {
     ?>
-    <tr>
+    <tr <?php if (($i+1) % 2 == 0) echo "class = 'gray' "?> >
         <?php if(isset ($mk_1[$i])) { ?>
         <td><?php echo $mk_1[$i]->kode ?></td>
         <td><?php echo $mk_1[$i]->nama ?></td>
