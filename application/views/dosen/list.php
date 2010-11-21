@@ -1,4 +1,5 @@
-<?php echo HTML::anchor('Dosen/add', 'Tambah Dosen')?>
+<?php echo HTML::anchor('Dosen/add', 'Tambah Dosen', array('class' => 'button'))?>
+<br />
 <table border="1">
     <thead>
         <tr>

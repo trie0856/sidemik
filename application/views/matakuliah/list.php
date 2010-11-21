@@ -1,14 +1,15 @@
-<?php echo HTML::anchor('matakuliah/add', 'Tambah Matakuliah')?>
-<table border="1">
+<?php echo HTML::anchor('matakuliah/add', 'Tambah Matakuliah', array('class' => 'button'))?>
+<br />
+<table class="sidemik_table">
     <thead>
         <tr>
-            <th>No</th>
-            <th width="100">Kode</th>
-            <th width="200">Nama Mata Kuliah</th>
-            <th>Tingkat</th>
-            <th>Semester Buka</th>
-            <th>Jumlah SKS</th>
-            <th>Keterangan</th>
+            <td width="50">No</td>
+            <td width="100">Kode</td>
+            <td width="200">Nama Mata Kuliah</td>
+            <td>Tingkat</td>
+            <td>Semester Buka</td>
+            <td>Jumlah SKS</td>
+            <td>Keterangan</td>
         </tr>
     </thead>
     <tbody>
@@ -16,7 +17,7 @@
         $no = 1;
         foreach ($matakuliahs as $matakuliah) {
         ?>
-            <tr>
+            <tr <?php if ($no % 2 == 0) echo "class='gray'" ?>>
                 <td><?php echo $no?></td>
                 <td><?php echo $matakuliah->kode;?></td>
                 <td><?php echo Html::anchor("/matakuliah/view/$matakuliah->kode",$matakuliah->nama);?></td>

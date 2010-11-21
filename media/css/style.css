@@ -23,6 +23,10 @@ a, a:visited, a:hover  {
     color: black;
 }
 
+table {
+    font-size: 16px;
+}
+
 #wrap {
     font-size: 16px;
     width: 1000px;
@@ -90,8 +94,8 @@ a, a:visited, a:hover  {
 }
 
 #navigator {
-    width: 190px;
-    padding-left: 10px;
+    font-weight: bold;
+    width: 200px;
     height: 300px;
     float: left;
 }
@@ -101,9 +105,7 @@ a, a:visited, a:hover  {
 }
 
 .link {
-    width: 180px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 200px;
     border-bottom-style: dotted;
     border-bottom-width: 3px;
     border-bottom-color: #000000;
@@ -221,35 +223,17 @@ a, a:visited, a:hover  {
 
 #content_2column {
     float: left;
-    width: 730px;
+    width: 760px;
     padding-right: 20px;
     padding-top : 10px;
-    padding-left: 10px;
+    padding-left: 20px;
     padding-bottom: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-top: 10px;
     background-color: rgb(236,235,235);
     -moz-border-radius: 15px;
     -border-radius: 15px;
     -moz-box-shadow: 10px 10px 5px #888;
     box-shadow: 10px 10px 5px #888;
-}
-
-input[type="text"] {
-
-    margin: 0px;
-    padding: 0px;
-    border-right-width: 1px;
-    border-left-width: 1px;
-    border-bottom-width: 1px;
-    border-top-width: 1px;
-    border-right-color: green;
-    border-left-color: green;
-    border-bottom-color: green;
-    border-top-color: green;
-    background-color: #c6bbbb;
 }
 
 .error_login {
@@ -270,24 +254,14 @@ label.error {
 #footer {
     width: 1000px;
     border: solid black 1px;
+    margin-top: 10px;
 }
 
 .clear {
     clear: both;
 }
 
-/*thead tr{
-    border-style: none;
-    padding:5px;
-    margin: 0px;
-    background-color: rgb(222,167,169);
-}
-
-tbody tr{
-    
-}*/
-
-button {
+button, .button {
     border-style: solid;
     border-color:  rgb(192,126,126);
     border-width: 3px;
@@ -299,20 +273,12 @@ button {
     color:rgb(123,22,22);
 }
 
-input, textarea {
-    background-color: rgb(195,191,191);
-    border-style: none;
-     -moz-border-radius: 3px;
-    -border-radius: 3px;
-    padding-left:10px;
-    padding-right:10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top:2px;
-    margin-bottom: 3px;
+.button {
+    display: table-cell;
+    text-decoration: none;
 }
 
-select {
+input[type="text"], input[type="password"], select, textarea {
     background-color: rgb(210,210,210);
     border-style: solid;
     border-color: rgb(125,125,125);
@@ -328,3 +294,19 @@ select {
     margin-left : 3px;
 }
 
+.sidemik_table thead {
+    font-weight: bold;
+    background-color: rgb(222,167,169);
+}
+
+.sidemik_table {
+    border-collapse: collapse;
+}
+
+.sidemik_table td {
+    padding: 5px;
+}
+
+.gray {
+    background-color: gray;
+}
