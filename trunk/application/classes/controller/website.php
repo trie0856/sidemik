@@ -50,7 +50,7 @@ class Controller_Website extends Controller_Template {
 
         if ($this->auto_render) {
             $styles                     = array('media/css/style.css' => 'screen');
-            $scripts                    = array('media/js/jquery-1.4.4.js', 'media/js/jquery.validate.js');
+            $scripts                    = array('media/js/jquery-1.4.4.js', 'media/js/jquery.validate.js', 'media/js/sidemik.js');
             $this->template->styles     = array_merge($this->template->styles, $styles);
             $this->template->scripts    = array_merge($this->template->scripts, $scripts);;
 

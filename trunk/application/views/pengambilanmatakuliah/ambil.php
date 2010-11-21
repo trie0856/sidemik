@@ -49,12 +49,24 @@ $mk_per_tingkat = $kurikulum[$tingkat];
         </tr>
     </thead>
     
-    <?php
-    $count_1 = count($mk_per_tingkat[1]);
-    $count_2 = count($mk_per_tingkat[2]);
+   <?php
+    $mk_1; $mk_2; $count_1; $count_2;
+    
+    if (isset ($mk_per_tingkat[1])) {
+        $mk_1 = $mk_per_tingkat[1];
+        $count_1 = count($mk_per_tingkat[1]);
+    } else {
+        $count_1 = 0;
+    }
+
+    if (isset($mk_per_tingkat[2])) {
+        $mk_2 = $mk_per_tingkat[2];
+        $count_2 = count($mk_per_tingkat[2]);
+    } else {
+        $count_2 = 0;
+    }
+
     $max = max(array($count_1, $count_2));
-    $mk_1 = $mk_per_tingkat[1];
-    $mk_2 = $mk_per_tingkat[2];
     ?>
     <?php
     for ($i=0; $i<$max; ++$i) {

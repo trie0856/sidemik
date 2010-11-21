@@ -1,12 +1,14 @@
+<h2>Daftar Dosen</h2>
+
 <?php echo HTML::anchor('Dosen/add', 'Tambah Dosen', array('class' => 'button'))?>
 <br />
 <table class="sidemik_table">
     <thead>
         <tr>
             <td>No</td>
-            <td width="100">NIP</td>
-            <td width="200">Nama</td>
-            <td width="150">Aksi</td>
+            <td>NIP</td>
+            <td>Nama</td>
+            <td>Aksi</td>
         </tr>
     </thead>
     <tbody>

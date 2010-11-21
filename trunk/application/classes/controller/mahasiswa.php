@@ -116,7 +116,8 @@ class Controller_Mahasiswa extends Controller_Website {
         $this->template->title = "Delete Mahasiswa";
 
         $mahasiswa = new Model_Mahasiswa($nim);
-        $mahasiswa->delete();
+        $user = new Model_User($mahasiswa->user_id);
+        $user->delete();
 
         // redirect
         Request::instance()->redirect('mahasiswa/list');

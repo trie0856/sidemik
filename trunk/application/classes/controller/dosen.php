@@ -106,11 +106,12 @@ class Controller_Dosen extends Controller_Website {
         $this->template->content->dosen = $dosen;
     }
 
-    public function action_delete() {
+    public function action_delete($nip) {
         $this->template->title = "Delete Dosen";
 
         $dosen = new Model_Dosen($nip);
-        $dosen->delete();
+        $user  = new Model_User($dosen->user_id);
+        $user->delete();
 
         Request::instance()->redirect('dosen/list');
     }
