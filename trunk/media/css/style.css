@@ -203,24 +203,16 @@ table {
     font-weight: bold;
 }
 
-#content {
-    float: left;
-    width: 800px;
-    background-color: #ccccff;
-    -moz-border-radius: 15px;
-    -border-radius: 15px;
-    background-attachment: scroll;
-}
-
 #content_1column {
     float: left;
     width: 980px;
+    height: 250px;
     padding-right: 10px;
     padding-top : 10px;
     padding-left: 10px;
     padding-bottom: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
    
     background-color: rgb(236,235,235);
     -moz-border-radius: 15px;

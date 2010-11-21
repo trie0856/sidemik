@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 20, 2010 at 02:40 PM
+-- Generation Time: Nov 21, 2010 at 05:44 PM
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -134,9 +134,7 @@ CREATE TABLE IF NOT EXISTS `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `user_id`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `email`, `alamat`, `no_hp`, `nama_ayah`, `telp_rumah`, `tahun_masuk`, `status_kelulusan`) VALUES
-('13508047', 13, 'Pudy Prima', 'Jakarta', '1985-02-05', 0, 'pudy@gmail.com', 'Jakarta', '1234355456546', '', '', 2010, 2),
-('13508104', 6, 'Rezan Achmad', 'Palu', '1991-05-13', 1, 'rezanachmad@yahoo.co.id', 'Cisitu', '085255150506', '', '', 2008, 2),
-('13508110', 11, 'Mukhammad Ifanto', 'Semarang', '1990-12-15', 1, 'ifun@yahoo.comd', 'Taman Hewan', '085255123456', '', '', 2008, 2);
+('13508104', 6, 'Rezan Achmad', 'Palu', '1991-02-02', 1, 'rezanachmad@yahoo.co.id', 'Cisitu', '085255150506', 'Has Atjo', '', 2009, 2);
 
 -- --------------------------------------------------------
 
@@ -160,7 +158,6 @@ CREATE TABLE IF NOT EXISTS `matakuliah` (
 
 INSERT INTO `matakuliah` (`kode`, `nama`, `jumlah_sks`, `deskripsi`, `tingkat`, `semester_buka`) VALUES
 ('EL2095', 'Sistem Digital', 3, 'Sistem Digital', 2, 1),
-('FI1101', 'Fisika Dasar IA', 4, 'Fisika Dasar IA', 1, 1),
 ('IF2030', 'Algoritma dan Struktur Data', 4, 'Algoritma dan Struktur Data', 2, 1),
 ('IF2032', 'Pemograman Berorientasi Objek', 4, 'Pemograman Berorientasi Objek', 2, 2),
 ('IF2034', 'Basis Data', 3, 'Basis Data', 2, 2),
@@ -174,7 +171,7 @@ INSERT INTO `matakuliah` (`kode`, `nama`, `jumlah_sks`, `deskripsi`, `tingkat`, 
 ('IF3094', 'KAP', 2, 'KAP', 3, 2),
 ('IF3097', 'Jaringan Komputer', 3, 'Jaringan Komputer', 3, 1),
 ('KU1011', 'TTKI', 2, 'TTKI', 1, 2),
-('KU1101', 'KPIP', 2, 'KPIP', 1, 1),
+('KU1101', 'KPIP', 2, 'KPIP', 2, 1),
 ('KU1201', 'SAS', 2, 'SAS', 1, 2),
 ('MA1101', 'Kalkulus IA', 4, 'Kalkulus IA', 1, 1),
 ('MA1201', 'Kalkulus IIA', 4, 'Kalkulus', 1, 2);
@@ -212,61 +209,21 @@ CREATE TABLE IF NOT EXISTS `pengambilan_mk` (
   UNIQUE KEY `nim_mahasiswa` (`nim_mahasiswa`,`kode_kuliah`,`semester`),
   KEY `nim_mahasiswa_2` (`nim_mahasiswa`),
   KEY `kode_kuliah` (`kode_kuliah`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=86 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `pengambilan_mk`
 --
 
 INSERT INTO `pengambilan_mk` (`id`, `nim_mahasiswa`, `kode_kuliah`, `semester`, `nilai`) VALUES
-(9, '13508110', 'IF2091', 2, NULL),
-(10, '13508110', 'IF3051', 2, 'A'),
-(11, '13508110', 'IF3054', 2, NULL),
-(12, '13508110', 'IF3094', 2, 'A'),
-(13, '13508110', 'IF3097', 2, 'A'),
-(14, '13508110', 'KU1011', 2, 'A'),
-(15, '13508110', 'KU1101', 2, NULL),
-(39, '13508104', 'FI1101', 1, NULL),
-(40, '13508104', 'KU1101', 1, NULL),
-(41, '13508104', 'MA1101', 1, NULL),
-(42, '13508104', 'EL2095', 1, NULL),
-(43, '13508104', 'KU1011', 2, 'A'),
-(44, '13508104', 'KU1201', 2, NULL),
-(45, '13508104', 'MA1201', 2, NULL),
-(46, '13508104', 'IF2030', 3, 'A'),
-(47, '13508104', 'IF2091', 3, NULL),
-(48, '13508104', 'IF3037', 3, NULL),
-(49, '13508104', 'KU1011', 4, NULL),
-(50, '13508104', 'IF2032', 4, 'B'),
-(51, '13508104', 'IF2034', 4, 'C'),
-(52, '13508104', 'IF2050', 4, NULL),
-(53, '13508104', 'IF2030', 5, NULL),
-(54, '13508104', 'IF3037', 5, NULL),
-(55, '13508104', 'IF3051', 5, NULL),
-(56, '13508104', 'IF3057', 5, NULL),
-(57, '13508104', 'IF3097', 5, NULL),
-(58, '13508104', 'IF3054', 6, NULL),
-(59, '13508104', 'IF3058', 6, NULL),
-(60, '13508104', 'IF3094', 6, NULL),
-(67, '13508047', 'FI1101', 1, NULL),
-(68, '13508047', 'KU1101', 1, NULL),
-(69, '13508047', 'MA1101', 1, NULL),
-(70, '13508047', 'KU1011', 2, 'A'),
-(71, '13508047', 'KU1201', 2, 'B'),
-(72, '13508047', 'MA1201', 2, NULL),
-(73, '13508047', 'EL2095', 3, NULL),
-(74, '13508047', 'IF2030', 3, NULL),
-(75, '13508047', 'IF2091', 3, NULL),
-(76, '13508047', 'IF2032', 4, NULL),
-(77, '13508047', 'IF2034', 4, NULL),
-(78, '13508047', 'IF2050', 4, NULL),
-(79, '13508047', 'IF3037', 5, NULL),
-(80, '13508047', 'IF3051', 5, NULL),
-(81, '13508047', 'IF3057', 5, NULL),
-(82, '13508047', 'IF3097', 5, NULL),
-(83, '13508047', 'IF3054', 6, NULL),
-(84, '13508047', 'IF3058', 6, NULL),
-(85, '13508047', 'IF3094', 6, NULL);
+(1, '13508104', 'EL2095', 3, 'C'),
+(2, '13508104', 'IF2030', 3, 'A'),
+(3, '13508104', 'IF2091', 3, 'C'),
+(4, '13508104', 'KU1101', 1, 'B'),
+(5, '13508104', 'MA1101', 1, 'A'),
+(6, '13508104', 'KU1011', 2, 'A'),
+(7, '13508104', 'KU1201', 2, 'C'),
+(8, '13508104', 'MA1201', 2, 'B');
 
 -- --------------------------------------------------------
 
@@ -377,19 +334,10 @@ CREATE TABLE IF NOT EXISTS `roles_users` (
 INSERT INTO `roles_users` (`user_id`, `role_id`) VALUES
 (6, 1),
 (9, 1),
-(11, 1),
 (12, 1),
-(13, 1),
-(16, 1),
-(17, 1),
-(18, 1),
 (9, 2),
-(18, 2),
 (6, 3),
-(11, 3),
-(13, 3),
-(12, 5),
-(17, 5);
+(12, 5);
 
 -- --------------------------------------------------------
 
@@ -421,12 +369,16 @@ CREATE TABLE IF NOT EXISTS `status_pembayaran` (
   `semester` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nim` (`nim`,`semester`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `status_pembayaran`
 --
 
+INSERT INTO `status_pembayaran` (`id`, `nim`, `semester`) VALUES
+(25, '13508104', 1),
+(26, '13508104', 2),
+(27, '13508104', 3);
 
 -- --------------------------------------------------------
 
@@ -466,21 +418,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_login` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `logins`, `last_login`) VALUES
-(6, '', '13508104', '7c330ade4b100d778fff7cc997c3cd945f8bf842ac29149daf', 15, 1290125941),
-(9, '', 'admin', '08efffae32d267f573b00dc90b3bb904266d2e1006f6a80023', 24, 1290237965),
-(11, '', '13508110', '796479b28f179553fee86415ed6fc078a484515576c79978a9', 1, 1289977929),
-(12, '', 'tata_usaha', '2271bbf4923aa908ff07e84a96707347273c5f34909dfb4ffa', 3, 1290087362),
-(13, '', '13508047', 'e27a46355d3c05034c88a2d7444632c0152e9c2b8908f866de', 0, NULL),
-(16, '', 'login', 'ca34d783f120716c2a42c4976cad734501d686b6b90f051964', 0, NULL),
-(17, '', 'tu', '46b6b90e35933c14b9dd253211eabd4fecd6d37c1f27b25148', 0, NULL),
-(18, '', 'adm', '19186b165858c5b82f429a1139d16d3d9624905b10655b4cba', 0, NULL);
+(6, '', '13508104', 'ad3af323f0fced5b7ecc7d202b86f517316ab055c29a916dfc', 21, 1290334440),
+(9, '', 'admin', '08efffae32d267f573b00dc90b3bb904266d2e1006f6a80023', 40, 1290335995),
+(12, '', 'tata_usaha', '2271bbf4923aa908ff07e84a96707347273c5f34909dfb4ffa', 6, 1290330348);
 
 --
 -- Constraints for dumped tables
@@ -502,8 +449,8 @@ ALTER TABLE `mahasiswa`
 -- Constraints for table `pengambilan_mk`
 --
 ALTER TABLE `pengambilan_mk`
-  ADD CONSTRAINT `pengambilan_mk_ibfk_2` FOREIGN KEY (`kode_kuliah`) REFERENCES `matakuliah` (`kode`) ON DELETE CASCADE,
-  ADD CONSTRAINT `pengambilan_mk_ibfk_1` FOREIGN KEY (`nim_mahasiswa`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE;
+  ADD CONSTRAINT `pengambilan_mk_ibfk_1` FOREIGN KEY (`nim_mahasiswa`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE,
+  ADD CONSTRAINT `pengambilan_mk_ibfk_2` FOREIGN KEY (`kode_kuliah`) REFERENCES `matakuliah` (`kode`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `roles_users`
