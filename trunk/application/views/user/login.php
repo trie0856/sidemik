@@ -21,7 +21,7 @@
         </tr>
         <tr>
             <td></td>
-            <td align="right"<?php echo Form::button('login','Masuk Log')?></td>
+            <td align="right"> <?php echo Form::button('login','Masuk Log', array('type' => 'submit'))?> </td>
         </tr>
     </table>
 <?php echo Form::close()?>
