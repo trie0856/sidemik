@@ -1,38 +1,46 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#add_mahasiswa_form").validate();
+    });
+</script>
+
 <h3>Tambah Mahasiswa</h3>
-<?php echo Form::open(NULL, array('method'=>'post'));?>
+<?php echo Form::open(NULL, array('method'=>'post', 'id' => 'add_mahasiswa_form', 'class' => 'cmxform'));?>
 <table>
     <tr>
         <td width="170"><?php echo Form::label('nim', 'NIM')?></td>
-        <td><?php echo Form::input('nim');?></td>
+        <td>
+        <?php echo Form::input('nim', NULL, array('class' => 'required'));?>
+        </td>
     </tr>
     <tr>
         <td><?php echo Form::label('password', 'Password')?></td>
-        <td><?php echo Form::password('password');?></td>
+        <td><?php echo Form::password('password', NULL, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('konfirmasi_password', 'Konfirmasi Password')?></td>
-        <td><?php echo Form::password('konfirmasi_password');?></td>
+        <td><?php echo Form::password('konfirmasi_password', NULL, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('nama', 'Nama')?></td>
-        <td><?php echo Form::input('nama');?></td>
+        <td><?php echo Form::input('nama', NULL, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('tempat_lahir', 'Tempat Lahir')?></td>
-        <td><?php echo Form::input('tempat_lahir');?></td>
+        <td><?php echo Form::input('tempat_lahir', NULL, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('tanggal_lahir', 'Tanggal Lahir')?></td>
         <td>
         <?php
         $date = array();
-        $date[0] = " ";
+        $date[""] = " ";
         for ($i = 1; $i <= 31; ++$i) {
             $date[$i] = $i;
         }
 
         $month = array(
-            "00" => " ",
+            "" => " ",
             "01" => "Januari",
             "02" => "Februari",
             "03" => "Maret",
@@ -48,14 +56,14 @@
         );
 
         $year = array();
-        $year[0] = " ";
+        $year[""] = " ";
         for ($i = 1980; $i < date('Y'); ++$i) {
             $year[$i] = $i;
         }
         
-        echo Form::select('tanggal', $date, 0);
-        echo Form::select('bulan', $month, 0);
-        echo Form::select('tahun', $year, 0);
+        echo Form::select('tanggal', $date);
+        echo Form::select('bulan', $month);
+        echo Form::select('tahun', $year);
         ?>
         </td>
     </tr>
@@ -100,7 +108,7 @@
         <td><?php echo Form::select('tahun_masuk', $tahun_masuks, $curyear);?></td>
     </tr>
     <tr>
-        <td><?php echo Form::button('tambah', 'Tambah')?></td>
+        <td><?php echo Form::submit('tambah', 'Tambah', array('class' => 'submit'))?></td>
         <td></td>
     </tr>
 </table>
