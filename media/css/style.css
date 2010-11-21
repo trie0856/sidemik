@@ -182,14 +182,11 @@ table {
     float: left;
     width: 766px;
     border-color: rgb(142,22,23);
-    border-right-style: groove;
-    border-left-style: groove;
-    border-bottom-style: groove;
-    border-top-style: groove;
+    border-style: inset;
     border-right-width: 2px;
     border-left-width: 2px;
-    border-bottom-width: 2px;
-    border-top-width: 2px;
+    border-bottom-width: 3px;
+    border-top-width: 3px;
     padding-left : 10px;
     padding-top: 3px;
     padding-bottom: 5px;
@@ -312,9 +309,17 @@ input[type="text"], input[type="password"], select, textarea {
 }
 
 .sidemik_table td {
-    padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.sidemik_table td a:hover{
+    color : rgb(37,19,211);
+/*    text-decoration: underline;*/
 }
 
 .gray {
-    background-color: gray;
+    background-color: rgb(190,190,190);
 }

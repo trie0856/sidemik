@@ -1,11 +1,11 @@
 <?php echo HTML::anchor('mahasiswa/add', 'Tambah Mahasiswa', array('class' => 'button'))?>
 <br />
-<table border="1">
+<table class="sidemik_table">
     <thead>
         <tr>
-            <th>No</th>
-            <th width="100">NIM</th>
-            <th width="200">Nama</th>
+            <td>No</td>
+            <td width="100">NIM</td>
+            <td width="200">Nama</td>
         </tr>
     </thead>
     <tbody>
@@ -13,7 +13,7 @@
         $no = 1;
         foreach ($mahasiswas as $mahasiswa) {
         ?>
-            <tr>
+            <tr <?php if ($no % 2 == 0) echo "class=gray" ?>>
                 <td><?php echo $no?></td>
                 <td><?php echo $mahasiswa->nim?></td>
                 <td><?php echo Html::anchor("/mahasiswa/profil/$mahasiswa->nim",$mahasiswa->nama);?></td>
