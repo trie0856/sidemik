@@ -20,7 +20,14 @@ class Controller_Dosen extends Controller_Website {
 
     public function action_index() {
         $this->template->title = "Dosen";
-        Request::instance()->redirect('dosen/list');
+         if (Auth::instance()->logged_in('dosen')) {
+            $user = Auth::instance()->get_user();
+            $dosen = new Model_Dosen();
+            $dosen = $dosen->where('user_id', '=', $user->id)->find();
+            Request::instance()->redirect('dosen/profil/' . $dosen->nip);
+        } else {
+            Request::instance()->redirect('dosen/list');
+        }
     }
 
     public function action_profil($nip) {
