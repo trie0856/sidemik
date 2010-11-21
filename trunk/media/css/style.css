@@ -157,8 +157,8 @@ a, a:visited, a:hover  {
 
 .link_2 a{
 
-    padding-left: 4px;
-    padding-right:4px;
+    padding-left: 3px;
+    padding-right:3px;
     color: #ffffff;
     text-shadow: 0px 0px 7px #fff;
     text-decoration: none;
@@ -172,8 +172,10 @@ a, a:visited, a:hover  {
 }
 
 #headercontent {
+    margin-left:5px;
+    margin-top: 5px;
     float: left;
-    width: 790px;
+    width: 770px;
     border-color: rgb(142,22,23);
     border-right-style: groove;
     border-left-style: groove;
@@ -183,6 +185,11 @@ a, a:visited, a:hover  {
     border-left-width: 2px;
     border-bottom-width: 2px;
     border-top-width: 2px;
+    padding-left : 10px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+     -moz-border-radius: 5px;
+    -border-radius: 5px;
 }
 
 #content {
@@ -267,5 +274,57 @@ label.error {
 
 .clear {
     clear: both;
+}
+
+/*thead tr{
+    border-style: none;
+    padding:5px;
+    margin: 0px;
+    background-color: rgb(222,167,169);
+}
+
+tbody tr{
+    
+}*/
+
+button {
+    border-style: solid;
+    border-color:  rgb(192,126,126);
+    border-width: 3px;
+    background-color: rgb(243,140,140);
+     -moz-border-radius: 8px;
+    -border-radius: 8px;
+    padding : 3px;
+    font-weight: bold;
+    color:rgb(123,22,22);
+}
+
+input, textarea {
+    background-color: rgb(195,191,191);
+    border-style: none;
+     -moz-border-radius: 3px;
+    -border-radius: 3px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top:2px;
+    margin-bottom: 3px;
+}
+
+select {
+    background-color: rgb(210,210,210);
+    border-style: solid;
+    border-color: rgb(125,125,125);
+    border-width: 2px;
+     -moz-border-radius: 3px;
+    -border-radius: 3px;
+    padding-left:5px;
+    padding-right: 3px;
+    padding-top:2px;
+    padding-bottom: 2px;
+    margin-top:2px;
+    margin-bottom: 3px;
+    margin-left : 3px;
 }
 
