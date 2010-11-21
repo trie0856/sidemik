@@ -15,7 +15,11 @@ class Controller_Front extends Controller_Website {
 
     public function action_index() {
         $this->template->title = "Front";
-        Request::instance()->redirect('mahasiswa');
+        if (Auth::instance()->logged_in('dosen')) {
+            Request::instance()->redirect('dosen');
+        } else {
+            Request::instance()->redirect('mahasiswa');
+        }
     }
 
 } // End Front
