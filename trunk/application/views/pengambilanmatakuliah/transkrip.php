@@ -1,3 +1,5 @@
+<h2>Transkrip Mahasiswa</h2>
+
 <table style="font-weight: bold">
     <tr>
         <td width="120">NIM</td>

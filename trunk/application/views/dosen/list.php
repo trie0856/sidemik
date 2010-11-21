@@ -6,7 +6,6 @@
             <td>No</td>
             <td width="100">NIP</td>
             <td width="200">Nama</td>
-            <td>Keterangan</td>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +17,6 @@
                 <td><?php echo $no?></td>
                 <td><?php echo $dosen->nip?></td>
                 <td><?php echo Html::anchor("/dosen/profil/$dosen->nip",$dosen->nama);?></td>
-                <td><?php echo Html::anchor("/dosen/edit/$dosen->nip",'Edit');?></td>
             </tr>
         <?php
         ++$no;

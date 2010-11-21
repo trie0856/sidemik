@@ -1,6 +1,6 @@
 <table>
     <tr>
-        <th colspan="3" align="left">Kartu Studi Mahasiswa</th>
+        <th colspan="3" align="left"><h2>Kartu Studi Mahasiswa</h2></th>
     </tr>
     <tbody>
     <tr>

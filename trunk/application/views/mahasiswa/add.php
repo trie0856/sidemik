@@ -65,7 +65,7 @@
     </legend>
     <table>
         <tr>
-            <td><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
+            <td width="170"><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
             <td><?php echo Form::select('jenis_kelamin', array('' => '', '0' => 'Wanita', '1' => 'Pria'), NULL, array('class' => 'required')); ?></td>
         </tr>
         <tr>

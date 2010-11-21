@@ -22,7 +22,7 @@
     <legend>Informasi Akun</legend>
     <table>
         <tr>
-            <td width="200"><?php echo Form::label('nip', 'NIP')?></td>
+            <td width="170"><?php echo Form::label('nip', 'NIP')?></td>
             <td><?php echo Form::input('nip', NULL, array('class' => 'required'));?></td>
         </tr>
         <tr>
@@ -59,8 +59,8 @@
     <legend>Informasi Pribadi</legend>
     <table>
         <tr>
-            <td><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
-            <td><?php echo Form::select('jenis_kelamin', array(' ' => '', '0' => 'Wanita', '1' => 'Pria'), NULL, array('class' => 'required'));?></td>
+            <td width="170"><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
+            <td><?php echo Form::select('jenis_kelamin', array('' => ' ', '0' => 'Wanita', '1' => 'Pria'), NULL, array('class' => 'required'));?></td>
         </tr>
         <tr>
             <td><?php echo Form::label('tempat_lahir', 'Tempat Lahir')?></td>
