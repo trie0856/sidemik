@@ -1,18 +1,17 @@
-<fieldset style="width: 300px; margin-left: auto; margin-right: auto;">
-    <legend>Status Pembayaran</legend>
+<h2>Status Pembayaran</h2>
     <?php echo Form::open(NULL);?>
-    <table border="1" style="text-align: center">
+    <table class="sidemik_table">
         <thead>
             <tr>
-                <th width="150">Semester</th>
-                <th width="150">Sudah Membayar</th>
+                <td>Semester</td>
+                <td>Sudah Membayar</td>
             </tr>
         </thead>
-        <tbody>
+        <tbody style="text-align: center;">
             <?php
             for ($i = 1; $i <= 6; ++$i) :
             ?>
-            <tr>
+            <tr <?php if ($i % 2 == 0) echo "class='gray'"?>>
                 <td><?php echo $i;?></td>
                 <td>
                     <?php
@@ -26,4 +25,3 @@
     <br />
     <?php echo Form::button('simpan', 'Simpan')?>
     <?php echo Form::close();?>
-</fieldset>
