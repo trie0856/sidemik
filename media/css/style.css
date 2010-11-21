@@ -356,3 +356,11 @@ h2 {
     margin-top: 5px;
     margin-bottom: 15px;
 }
+
+.pink {
+    background-color: rgb(222,167,169);
+}
+
+.pink_gelap {
+    background-color: rgb(201,78,82);
+}

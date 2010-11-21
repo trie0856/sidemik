@@ -24,7 +24,7 @@ $jum_sks = 0;
 ?>
 <table class="sidemik_table">
     <thead>
-        <tr>
+        <tr class="pink_gelap">
             <td colspan="4" width="350">Semester <?php echo $i;?></td>
         </tr>
         <tr>
