@@ -36,9 +36,11 @@ $jum_sks = 0;
     </thead>
     <tbody>
         <?php
+        $no = 0;
         foreach($transkrip[$i] as $row) {
+        ++$no;
         ?>
-        <tr>
+        <tr <?php if($no % 2 == 0) echo "class = 'gray' ";?> >
             <?php
             $jum_sks += $row['sks'];
             foreach($row as $td) {
@@ -51,7 +53,7 @@ $jum_sks = 0;
         ?>
     </tbody>
     <tfoot>
-        <tr>
+        <tr class="pink">
             <td align="left" colspan="4">IP / SKS : <?php echo Sidemik::calculateIP($mahasiswa->nim, $i) . " / " . $jum_sks ?></td>
         </tr>
     </tfoot>
