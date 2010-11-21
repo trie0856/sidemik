@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 21, 2010 at 07:06 
+-- Generation Time: Nov 21, 2010 at 07:53 
 -- Server version: 5.1.41
 -- PHP Version: 5.3.1
 
@@ -67,6 +67,11 @@ CREATE TABLE IF NOT EXISTS `dosen` (
 -- Dumping data for table `dosen`
 --
 
+INSERT INTO `dosen` (`nip`, `user_id`, `nama`, `tahun_masuk`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `no_hp`, `telp_rumah`, `email`) VALUES
+('12345', 31, 'Prof. Dr. Rejan', 2005, 'Palu', '1980-02-02', 1, 'cisitu', '085255150506', '02234567', 'rejan@yahoo.co.id'),
+('132320559', 30, 'Achmad Imam Kistijantoro', 2003, 'Jakarta', '1977-01-01', 1, 'Jalan Ligar No. 4', '085959632111', '0222508135', 'imam@informatika.org'),
+('55555', 33, 'Dr. Ifun', 2009, 'Magelang', '1982-12-15', 1, 'taman hewan', '', '', 'ifun@yahoo.com'),
+('99999', 32, 'Pudy, M.Eng', 2009, 'Jakarta', '1983-11-30', 0, 'kosan saya', '085221567090', '02270506089', 'pudy@yahoo.co.uk');
 
 -- --------------------------------------------------------
 
@@ -410,6 +415,10 @@ INSERT INTO `roles_users` (`user_id`, `role_id`) VALUES
 (27, 1),
 (28, 1),
 (29, 1),
+(30, 1),
+(31, 1),
+(32, 1),
+(33, 1),
 (9, 2),
 (6, 3),
 (21, 3),
@@ -421,6 +430,10 @@ INSERT INTO `roles_users` (`user_id`, `role_id`) VALUES
 (27, 3),
 (28, 3),
 (29, 3),
+(30, 4),
+(31, 4),
+(32, 4),
+(33, 4),
 (12, 5);
 
 -- --------------------------------------------------------
@@ -503,7 +516,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_login` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uniq_username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `users`
@@ -511,7 +524,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `logins`, `last_login`) VALUES
 (6, '', '13508104', 'ad3af323f0fced5b7ecc7d202b86f517316ab055c29a916dfc', 21, 1290334440),
-(9, '', 'admin', '08efffae32d267f573b00dc90b3bb904266d2e1006f6a80023', 41, 1290338124),
+(9, '', 'admin', '08efffae32d267f573b00dc90b3bb904266d2e1006f6a80023', 43, 1290343080),
 (12, '', 'tata_usaha', '2271bbf4923aa908ff07e84a96707347273c5f34909dfb4ffa', 6, 1290330348),
 (21, '', '13508047', '61502d897989196ad30e3740099cce3304e354083703d52689', 0, NULL),
 (22, '', '13508110', '17e438c87623d9816e15e5cdcfd54ed2db2b5cdb11ae025017', 0, NULL),
@@ -521,7 +534,11 @@ INSERT INTO `users` (`id`, `email`, `username`, `password`, `logins`, `last_logi
 (26, '', '13508044', '31e1ae27375bca9ff9842d8913945ab43a2932597d4039db15', 0, NULL),
 (27, '', '13508036', 'd4c3318e8fa61fa0e888c354eac8cb23880cc0ca710017a4e0', 0, NULL),
 (28, '', '13508050', '35bd8543be1726785966fef04a94f5cd15e39dca5194eabda4', 0, NULL),
-(29, '', '13508100', 'dbcb58ca306e5823bb76100bababdecb935553a718750cd8e1', 0, NULL);
+(29, '', '13508100', 'dbcb58ca306e5823bb76100bababdecb935553a718750cd8e1', 0, NULL),
+(30, '', '132320559', '2c1088f496c83baa0bb5053866c990b5643d6e71577bc38f66', 0, NULL),
+(31, '', '12345', '2deae87b0ce67ffdcf106857c3f3ee2f5d51ba46648429b337', 0, NULL),
+(32, '', '99999', '7bd7f4b7ec153e1d65e5fe41cb956deab15880e72de9161d83', 0, NULL),
+(33, '', '55555', 'c6c2951aec757a0c02cdc9eeb95dcc4dd9ddb45edae7b27b91', 0, NULL);
 
 --
 -- Constraints for dumped tables
