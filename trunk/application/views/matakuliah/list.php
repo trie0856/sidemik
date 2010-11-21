@@ -17,7 +17,7 @@
         $no = 1;
         foreach ($matakuliahs as $matakuliah) {
         ?>
-            <tr <?php if ($no % 2 == 0) echo "class='gray'" ?>>
+            <tr <?php if ($no % 2 == 0) echo "class=gray" ?>>
                 <td><?php echo $no?></td>
                 <td><?php echo $matakuliah->kode;?></td>
                 <td><?php echo Html::anchor("/matakuliah/view/$matakuliah->kode",$matakuliah->nama);?></td>
