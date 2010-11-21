@@ -19,6 +19,8 @@
     });
 </script>
 
+<h2>Ubah Password</h2>
+
 <?php echo Form::open(NULL, array('method'=>'post', 'id' => 'ubah_password_form'));?>
 <table>
     <tr>
