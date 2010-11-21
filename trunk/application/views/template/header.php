@@ -15,22 +15,27 @@ and open the template in the editor.
     <body>
         <div id="wrap">
             <div id="header">
-                <div id="logo">
-                    Logo<br />
-                </div>
-                <div id="greeting">
+                <a href="<?php echo URL::site();?>">
+                    <div id="logo">
+                    </div>
+                </a>
+                <div id="greeting_logout">
+                    <div id="greeting">
                     <?php echo $greeting; ?>
-                </div>
+                    </div>
                 <?php
                 if ($auth_user->logged_in()) :
                 ?>
-                <div id="logout">
+                    <div id="logout">
                     > 
                     <?php echo HTML::anchor('user/logout', 'Logout')?>
-                </div>
+                    </div>
                 <?php
                 endif;
                 ?>
-                <div class="clear"></div>
+                    <div class="clear">
+                        
+                    </div>
+                </div>
             </div>
             <div id="middle">
