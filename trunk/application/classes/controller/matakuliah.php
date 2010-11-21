@@ -13,7 +13,7 @@ class Controller_Matakuliah extends Controller_Website {
     public $select_jumlah_sks = array();
 
     public function generateSelectJumlahSKS() {
-        $select_jumlah_sks[0] = '';
+        $select_jumlah_sks[""] = ' ';
         for($i=1; $i<=20; ++$i) {
             $select_jumlah_sks[$i] = $i;
         }
