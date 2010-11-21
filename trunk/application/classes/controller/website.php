@@ -70,7 +70,17 @@ class Controller_Website extends Controller_Template {
                 $this->admin_tu_func_add_id_for_links($links);
                 $this->template->links_2 = $links;
 
-                // Tampilkan nama dan nim / nip
+                // Tampilkan nama dan nomor id mahasiswa / dosen
+                $session = Session::instance();
+                if ($session->get('access') == 'dosen') {
+                    $number = $session->get('nip');
+                    $this->template->number = $number;
+                    $this->template->name = ORM::factory('dosen', $number)->nama;
+                } else {
+                    $number = $session->get('nim');
+                    $this->template->number = $number;
+                    $this->template->name = ORM::factory('mahasiswa', $number)->nama;
+                }
             }
 
             // Kelola Greeting

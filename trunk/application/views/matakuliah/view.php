@@ -1,4 +1,4 @@
-view
+<h2>Informasi Mata Kuliah</h2>
 <table>
     <tr>
         <td><?php echo 'Kode';?></td>
