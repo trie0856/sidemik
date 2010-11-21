@@ -34,32 +34,14 @@ a, a:visited, a:hover  {
     background-repeat: no-repeat;
     padding: 0;
     margin: 0;
-    background-image: url(../img/header.jpg);
+    
 }
 
 #logo {
-    height: 90px;
-    /*
-    border-right-width: 1px;
-    border-left-width: 1px;
-    border-bottom-width: 1px;
-    border-top-width: 1px;
-    border-right-color: red;
-    border-left-color: red;
-    border-bottom-color: red;
-    border-top-color: red;
-    border-right-style: inset;
-    border-left-style: inset;
-    border-bottom-style: inset;
-    border-top-style: inset;
-    */
-    margin-right: 5px;
-    margin-left: 5px;
-    margin-bottom: 5px;
+    height: 110px;
     margin-top: 5px;
-    background-image: url(../img/logo.png);
+    background-image: url(../img/header.png);
     background-repeat: no-repeat;
-/*    background-color:  rgb(221, 22, 30);*/
 }
 
 #logo img {
@@ -82,8 +64,8 @@ a, a:visited, a:hover  {
 }
 
 #greeting_logout {
+    text-shadow: 0px 0px 7px #fff;
     color : #FFFFFF;
-    margin-top: 10px;
     padding-top : 5px;
     padding-bottom: 5px;
     background-color: rgb(171,21,27);
@@ -93,8 +75,13 @@ a, a:visited, a:hover  {
 
 #greeting_logout a {
     color : #FFFFFF;
+    text-decoration: none;
     font-weight: bold;
     font-size: 14px;
+}
+
+#greeting_logout a:hover {
+    text-decoration: underline;
 }
 
 
@@ -109,6 +96,10 @@ a, a:visited, a:hover  {
     float: left;
 }
 
+#navigator_2 {
+    background-color: rgb(246,99,102);
+}
+
 .link {
     width: 180px;
     margin-left: auto;
@@ -121,6 +112,7 @@ a, a:visited, a:hover  {
 }
 
 .link a{
+    padding-left: 15px;
     display : block;
     text-decoration: none;
     padding-top:2px;
@@ -128,25 +120,69 @@ a, a:visited, a:hover  {
 }
 
 .link a:hover{
-    background-color: #ff0000;
-    color: #ffffff;
-    opacity:0.3;
+    display : block;
+    background-color: rgb(247,181,183);
 }
 
+
+
 .link_2 {
+
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: bold;
     float: left;
-    padding-left: 5px;
-    padding-right: 5px;
+    background-color: rgb(249,43,48);
+    border-left-color: #f9b0a4;
+    border-right-color: #f9b0a4;
+    border-right-width: 2px;
     padding-top: 3px;
     padding-bottom: 3px;
-    border-right-style: solid;
+    margin-left: 4px;
     border-left-style: solid;
-    border-bottom-style: solid;
+    border-right-style: solid;
+    border-left-width: 2px;
+
+    -moz-border-radius: 5px;
+    -border-radius: 5px;
+    -moz-box-shadow: 5px 5px 9px #888;
+    box-shadow: 10px 10px 5px #888;
+    border-bottom-color: #f9b0a4;
+    border-top-color: #f9b0a4;
     border-top-style: solid;
-    border-right-width: 1px;
-    border-left-width: 1px;
-    border-bottom-width: 1px;
-    border-top-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-top-width: 2px;
+}
+
+.link_2 a{
+
+    padding-left: 4px;
+    padding-right:4px;
+    color: #ffffff;
+    text-shadow: 0px 0px 7px #fff;
+    text-decoration: none;
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.link_2 a:hover{
+    background-color: rgb(98,61,194);
+}
+
+#headercontent {
+    float: left;
+    width: 790px;
+    border-color: rgb(142,22,23);
+    border-right-style: groove;
+    border-left-style: groove;
+    border-bottom-style: groove;
+    border-top-style: groove;
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-bottom-width: 2px;
+    border-top-width: 2px;
 }
 
 #content {
@@ -160,8 +196,21 @@ a, a:visited, a:hover  {
 }
 
 #content_1column {
-    width: 1000px;
-    background-image: url(../img/middle1.png);
+    float: left;
+    width: 730px;
+    padding-right: 20px;
+    padding-top : 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgb(236,235,235);
+    -moz-border-radius: 15px;
+    -border-radius: 15px;
+    -moz-box-shadow: 10px 10px 5px #888;
+    box-shadow: 10px 10px 5px #888;
 }
 
 #content_2column {
@@ -175,9 +224,7 @@ a, a:visited, a:hover  {
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
-    background-color: #ccccff;
-/*    filter:alpha(opacity=60);
-    opacity:0.3;*/
+    background-color: rgb(236,235,235);
     -moz-border-radius: 15px;
     -border-radius: 15px;
     -moz-box-shadow: 10px 10px 5px #888;

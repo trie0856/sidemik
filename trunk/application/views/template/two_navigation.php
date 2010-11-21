@@ -3,6 +3,9 @@ include 'header.php';
 include 'navigator.php';
 ?>
 <div id="middle_right">
+    <div id="headercontent">
+        Nama <br>
+    </div>
     <div id="navigator_2">
         <?php
         foreach ($links_2 as $link => $value) :
@@ -16,7 +19,7 @@ include 'navigator.php';
         endforeach;
         ?>
     </div>
-    <div id="content">
+    <div id="content_2column">
         <?php
         echo $content;
         ?>

@@ -2,7 +2,7 @@
     <?php
     foreach ($links as $title => $value) :
     ?>
-    <div class="link">
+    <div  class="link">
         <?php echo HTML::anchor($value['link'], $title);?>
     </div>
     <?php
