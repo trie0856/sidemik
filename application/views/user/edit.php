@@ -1,3 +1,21 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#add_mahasiswa_form").validate({
+            rules : {
+                konfirmasi_password: {
+                    required : true,
+                    equalTo: "#password"
+                }
+            },
+            messages : {
+                konfirmasi_password: {
+                    equalTo: "Masukkan password yang sama."
+                }
+            }
+        });
+    });
+</script>
+
 <?php echo Form::open(NULL, array('method'=>'post'));?>
 <table>
     <tr>
