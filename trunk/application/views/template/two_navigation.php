@@ -4,7 +4,7 @@ include 'navigator.php';
 ?>
 <div id="middle_right">
     <div id="headercontent">
-        Nama <br>
+        <?php //echo $name . "/" . $number ;?>
     </div>
     <div id="navigator_2">
         <?php

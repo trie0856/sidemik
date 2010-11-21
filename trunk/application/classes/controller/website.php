@@ -69,6 +69,8 @@ class Controller_Website extends Controller_Template {
                 $links = $this->admin_tu_filter_links($links);
                 $this->admin_tu_func_add_id_for_links($links);
                 $this->template->links_2 = $links;
+
+                // Tampilkan nama dan nim / nip
             }
 
             // Kelola Greeting

@@ -3,7 +3,7 @@
 // Link untuk tambahan untuk admin dan tata usaha jika mengakses mahasiswa
 return array (
     'mahasiswa/profil'                      => array (
-        'title'     => 'Profil Mahasiswa',
+        'title'     => 'Profil',
         'show'      => TRUE,
         'role'      => array('admin', 'tata_usaha')
     ),
