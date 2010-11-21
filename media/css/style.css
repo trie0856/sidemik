@@ -199,6 +199,12 @@ a, a:visited, a:hover  {
     text-align: center;
 }
 
+label.error {
+    font-style: italic;
+    margin-left: 5px;
+    color: #ff0000;
+}
+
 #footer {
     width: 1000px;
     border: solid black 1px;
