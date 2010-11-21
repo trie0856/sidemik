@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><?php echo Form::submit('login','Masuk Log')?></td>
+            <td><?php echo Form::button('login','Masuk Log')?></td>
         </tr>
     </table>
 <?php echo Form::close()?>
