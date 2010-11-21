@@ -235,12 +235,13 @@ table {
 }
 
 .error_login {
-    background-color: #ff0000;
-    color: #ffffff;
-    margin: 5px;
-    padding: 5px;
-    width: 300px;
+    color: #7B1616;
     text-align: center;
+    vertical-align: middle;
+    padding: 2px;
+    -moz-border-radius: 5px;
+    -border-radius: 5px;
+    background-color: #F38C8C;
 }
 
 label.error {

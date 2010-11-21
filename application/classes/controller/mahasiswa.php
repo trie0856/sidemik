@@ -117,6 +117,9 @@ class Controller_Mahasiswa extends Controller_Website {
 
         $mahasiswa = new Model_Mahasiswa($nim);
         $mahasiswa->delete();
+
+        // redirect
+        Request::instance()->redirect('mahasiswa/list');
     }
 
     public function action_statuspembayaran($nim) {

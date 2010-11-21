@@ -111,6 +111,8 @@ class Controller_Dosen extends Controller_Website {
 
         $dosen = new Model_Dosen($nip);
         $dosen->delete();
+
+        Request::instance()->redirect('dosen/list');
     }
 
     public function action_jadwalkosong() {

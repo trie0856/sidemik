@@ -110,6 +110,8 @@ class Controller_Matakuliah extends Controller_Website {
 
         $matakuliah = new Model_Matakuliah($kode);
         $matakuliah->delete();
+
+        Request::instance()->redirect('matakuliah/list');
     }
 
 } // End Matakuliah
