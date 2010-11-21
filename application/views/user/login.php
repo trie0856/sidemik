@@ -4,18 +4,18 @@
         username dan password tidak cocok.
     </div>
     <?php endif;?>
-    <table>
+    <table align="center">
         <tr>
-            <td>username</td>
+            <td width="100"><b>username</b></td>
             <td><?php echo Form::input('username')?></td>
         </tr>
         <tr>
-            <td>password</td>
+            <td><b>password</b></td>
             <td><?php echo Form::password('password')?></td>
         </tr>
         <tr>
             <td></td>
-            <td><?php echo Form::button('login','Masuk Log')?></td>
+            <td align="right"<?php echo Form::button('login','Masuk Log')?></td>
         </tr>
     </table>
 <?php echo Form::close()?>
