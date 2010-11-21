@@ -3,8 +3,8 @@
 <table class="sidemik_table">
     <thead>
         <tr>
-            <td width="50">No</td>
-            <td width="100">Kode</td>
+            <td width="40">No</td>
+            <td width="90">Kode</td>
             <td width="200">Nama Mata Kuliah</td>
             <td>Tingkat</td>
             <td>Semester Buka</td>
