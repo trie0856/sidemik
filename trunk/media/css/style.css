@@ -107,7 +107,8 @@ table {
 }
 
 #navigator_2 {
-    background-color: rgb(246,99,102);
+    float : left;
+    margin-left: 20px;
 }
 
 .link {
@@ -146,15 +147,13 @@ table {
     border-right-width: 2px;
     padding-top: 3px;
     padding-bottom: 3px;
-    margin-left: 4px;
+    margin-right: 5px;
     border-left-style: solid;
     border-right-style: solid;
     border-left-width: 2px;
 
     -moz-border-radius: 5px;
     -border-radius: 5px;
-    -moz-box-shadow: 5px 5px 9px #888;
-    box-shadow: 10px 10px 5px #888;
     border-bottom-color: #f9b0a4;
     border-top-color: #f9b0a4;
     border-top-style: solid;
@@ -192,12 +191,14 @@ table {
     border-bottom-width: 2px;
     border-top-width: 2px;
     padding-left : 10px;
-    padding-top: 2px;
-    padding-bottom: 3px;
+    padding-top: 3px;
+    padding-bottom: 5px;
     margin-left:20px;
     margin-top: 5px;
      -moz-border-radius: 5px;
     -border-radius: 5px;
+    text-shadow: 0px 0px 10px #f00;
+    font-weight: bold;
 }
 
 #content {
