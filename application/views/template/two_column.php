@@ -2,7 +2,7 @@
 include 'header.php';
 include 'navigator.php';
 ?>
-<div id="content">
+<div id="content_2column">
     <?php
     echo $content;
     ?>
