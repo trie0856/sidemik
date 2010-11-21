@@ -3,7 +3,7 @@
         $("#edit_mahasiswa").validate();
     });
 </script>
-
+<h2>Edit Profil Mahasiswa</h2>
 <?php echo Form::open(NULL, array('method'=>'post', 'id' => 'edit_mahasiswa'));?>
 <table>
     <tr>
