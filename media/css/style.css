@@ -309,15 +309,14 @@ input[type="text"], input[type="password"], select, textarea {
 }
 
 .sidemik_table td {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 10px;
 }
 
 .sidemik_table td a:hover{
     color : rgb(37,19,211);
-/*    text-decoration: underline;*/
 }
 
 .gray {
