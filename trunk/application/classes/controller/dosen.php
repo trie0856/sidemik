@@ -113,4 +113,7 @@ class Controller_Dosen extends Controller_Website {
         $dosen->delete();
     }
 
+    public function action_jadwalkosong() {
+        $this->template->title = "Jadwal Kosong Dosen";
+    }
 } // End Dosen

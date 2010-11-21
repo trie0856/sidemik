@@ -94,7 +94,7 @@
 
             $year = array();
             $year[""] = " ";
-            for ($i = 1980; $i < date('Y'); ++$i) {
+            for ($i = 1930; $i < date('Y'); ++$i) {
                 $year[$i] = $i;
             }
 
