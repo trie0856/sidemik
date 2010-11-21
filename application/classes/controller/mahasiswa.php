@@ -21,7 +21,7 @@ class Controller_Mahasiswa extends Controller_Website {
 
     public function action_index() {
         $this->template->title = "Mahasiswa";
-        Request::instance()->
+        Request::instance()->redirect('mahasiswa/list');
     }
 
     public function action_profil($nim) {
