@@ -1,7 +1,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#add_mahasiswa_form").validate({
+        $("#ubah_password_form").validate({
             rules : {
+                password : {
+                    required : true
+                },
                 konfirmasi_password: {
                     required : true,
                     equalTo: "#password"
@@ -16,7 +19,7 @@
     });
 </script>
 
-<?php echo Form::open(NULL, array('method'=>'post'));?>
+<?php echo Form::open(NULL, array('method'=>'post', 'id' => 'ubah_password_form'));?>
 <table>
     <tr>
         <td width="150"><?php echo 'Username' ?></td>
@@ -24,11 +27,11 @@
     </tr>
     <tr>
         <td><?php echo Form::label('password', 'Password')?></td>
-        <td><?php echo Form::password('password');?></td>
+        <td><?php echo Form::password('password', NULL, array('id' => 'password'));?></td>
     </tr>
     <tr>
-        <td><?php echo Form::label('retype_password', 'Konfirmasi Password')?></td>
-        <td><?php echo Form::password('retype_password');?></td>
+        <td><?php echo Form::label('konfirmasi_password', 'Konfirmasi Password')?></td>
+        <td><?php echo Form::password('konfirmasi_password', NULL, array('id' => 'konfirmasi_password'));?></td>
     </tr>
     <tr>
         <td></td>

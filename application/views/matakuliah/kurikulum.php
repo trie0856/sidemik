@@ -1,4 +1,4 @@
-kurikulum
+<h2>Kurikulum</h2>
 <?php
 for ($tingkat = 1; $tingkat<=3; ++$tingkat) {
 $mk_per_tingkat = $kurikulum[$tingkat];

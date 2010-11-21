@@ -8,7 +8,7 @@ return array (
         'role'      => array('admin', 'tata_usaha')
     ),
     'mahasiswa/edit'                        => array (
-        'title'     => 'Edit Profile',
+        'title'     => 'Edit Profil',
         'show'      => FALSE,
         'role'      => array('admin')
     ),
