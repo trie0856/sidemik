@@ -79,20 +79,28 @@ a, a:visited, a:hover  {
     margin-right: 10px;
     float: right;
     text-align: right;
-    padding-bottom: 0px;
 }
 
 #greeting_logout {
-/*    height: 30px;*/
+    color : #FFFFFF;
     margin-top: 10px;
+    padding-top : 5px;
+    padding-bottom: 5px;
     background-color: rgb(171,21,27);
+    font-weight: bold;
+    font-size: 14px;
 }
+
+#greeting_logout a {
+    color : #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
+}
+
 
 #middle {
     width: 1000px;
 }
-
-
 
 #navigator {
     width: 190px;
@@ -115,11 +123,14 @@ a, a:visited, a:hover  {
 .link a{
     display : block;
     text-decoration: none;
+    padding-top:2px;
+    padding-bottom:2px;
 }
 
 .link a:hover{
     background-color: #ff0000;
     color: #ffffff;
+    opacity:0.3;
 }
 
 .link_2 {
@@ -143,8 +154,6 @@ a, a:visited, a:hover  {
     width: 780px;
     padding: 10px;
     background-color: #ccccff;
-/*    filter:alpha(opacity=60);
-    opacity:0.3;*/
     -moz-border-radius: 15px;
     -border-radius: 15px;
     background-attachment: scroll;
