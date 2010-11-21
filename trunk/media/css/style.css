@@ -338,3 +338,16 @@ input[type="text"], input[type="password"], select, textarea {
 #login_box_outer {
 
 }
+
+fieldset {
+    border: solid rgb(140,140,140) 2px;
+    -moz-border-radius: 5px;
+    -border-radius: 5px;
+}
+
+legend {
+/*    font-style: italic;
+*/
+    font-weight: bold;
+    color:rgb(100,100,100);
+}
