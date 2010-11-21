@@ -4,6 +4,7 @@ class Controller_Dosen extends Controller_Website {
 
     public $auth_required = 'login';
     public $secure_actions = array(
+        'profil'    => 'login',
         'add'       => 'admin',
         'delete'    => 'admin',
         'list'      => array('admin', 'tata_usaha'),
