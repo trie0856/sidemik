@@ -1,17 +1,39 @@
-add
-<?php echo Form::open(NULL, array('method'=>'post'));?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#add_dosen_form").validate({
+            rules : {
+                konfirmasi_password: {
+                    required : true,
+                    equalTo: "#password"
+                }
+            },
+            messages : {
+                konfirmasi_password: {
+                    equalTo: "Masukkan password yang sama."
+                }
+            }
+        });
+    });
+</script>
+
+<h2>Tambah Dosen</h2>
+<?php echo Form::open(NULL, array('method'=>'post', 'id' => 'add_dosen_form'));?>
 <table>
     <tr>
-        <td><?php echo Form::label('nip', 'NIP')?></td>
-        <td><?php echo Form::input('nip');?></td>
-    </tr>
-    <tr>
-        <td><?php echo Form::label('password', 'Password')?></td>
-        <td><?php echo Form::input('password');?></td>
+        <td width="200"><?php echo Form::label('nip', 'NIP')?></td>
+        <td><?php echo Form::input('nip', NULL, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('nama', 'Nama')?></td>
-        <td><?php echo Form::input('nama');?></td>
+        <td><?php echo Form::input('nama', NULL, array('class' => 'required'));?></td>
+    </tr>
+    <tr>
+        <td><?php echo Form::label('password', 'Password')?></td>
+        <td><?php echo Form::input('password', NULL, array('class' => 'required', 'id' => 'password'));?></td>
+    </tr>
+    <tr>
+        <td><?php echo Form::label('konfirmasi_password', 'Konfirmasi Password')?></td>
+        <td><?php echo Form::input('konfirmasi_password', NULL, array('class' => 'required', 'id' => 'konfirmasi_password'));?></td>
     </tr>
     <tr>
         <?php
@@ -26,52 +48,53 @@ add
             }
         ?>
         <td><?php echo Form::label('tahun_masuk', 'Tahun Masuk')?></td>
-        <td><?php echo Form::select('tahun_masuk', $tahun_masuks, $curyear);?></td>
+        <td><?php echo Form::select('tahun_masuk', $tahun_masuks, $curyear, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('tempat_lahir', 'Tempat Lahir')?></td>
-        <td><?php echo Form::input('tempat_lahir');?></td>
+        <td><?php echo Form::input('tempat_lahir', NULL, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('tanggal_lahir', 'Tanggal Lahir')?></td>
         <td>
         <?php
         $date = array();
-        $date[0] = " ";
+        $date[""] = " ";
         for ($i = 1; $i <= 31; ++$i) {
             $date[$i] = $i;
         }
 
         $month = array(
-            " ",
-            "Januari",
-            "Februari",
-            "Maret",
-            "April",
-            "Mei",
-            "Juni",
-            "Juli",
-            "Agustus",
-            "Oktober",
-            "November",
-            "Desember"
+            "" => " ",
+            "01" => "Januari",
+            "02" => "Februari",
+            "03" => "Maret",
+            "04" => "April",
+            "05" => "Mei",
+            "06" => "Juni",
+            "07" => "Juli",
+            "08" => "Agustus",
+            "09" => "September",
+            "10" => "Oktober",
+            "11" => "November",
+            "12" => "Desember"
         );
 
         $year = array();
-        $year[0] = " ";
+        $year[""] = " ";
         for ($i = 1980; $i < date('Y'); ++$i) {
             $year[$i] = $i;
         }
 
-        echo Form::select('tanggal', $date, 0);
-        echo Form::select('bulan', $month, 0);
-        echo Form::select('tahun', $year, 0);
+        echo Form::select('tanggal', $date, NULL, array('class' => 'required'));
+        echo Form::select('bulan', $month, NULL, array('class' => 'required'));
+        echo Form::select('tahun', $year, NULL, array('class' => 'required'));
         ?>
         </td>
     </tr>
     <tr>
         <td><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
-        <td><?php echo Form::select('jenis_kelamin', array('-1' => '', '0' => 'Wanita', '1' => 'Pria'));?></td>
+        <td><?php echo Form::select('jenis_kelamin', array(' ' => '', '0' => 'Wanita', '1' => 'Pria'), NULL, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('alamat', 'Alamat')?></td>
