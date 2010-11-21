@@ -249,7 +249,7 @@ label.error {
 }
 
 #footer {
-    width: 990px;
+    width: 980px;
     background-color: rgb(228,87,92);
     border-top: inset rgb(171,21,27) 3px;
     border-bottom: inset rgb(171,21,27) 3px;
@@ -321,4 +321,18 @@ input[type="text"], input[type="password"], select, textarea {
 
 .gray {
     background-color: rgb(190,190,190);
+}
+
+#login_box_inner {
+    margin: 30px auto;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    width:400px;
+    background-color: rgb(180,180,180);
+    -moz-border-radius: 9px;
+    -border-radius: 9px;
+}
+
+#login_box_outer {
+    
 }
