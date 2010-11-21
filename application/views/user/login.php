@@ -1,4 +1,5 @@
-<div id="login_box">
+<div id="login_box_outer">
+    <div id="login_box_inner">
 <?php echo Form::open(NULL, array('method' => 'post'))?>
     <?php if(isset($status) && $status == FALSE) : ?>
     <div class="error_login">
@@ -20,4 +21,5 @@
         </tr>
     </table>
 <?php echo Form::close()?>
+    </div>
 </div>
