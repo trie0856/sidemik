@@ -1,3 +1,5 @@
+<h2>Profil Mahasiswa</h2>
+
 <table>
     <tr>
         <td width="170"><?php echo 'NIM'?></td>

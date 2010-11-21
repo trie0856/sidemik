@@ -1,5 +1,11 @@
-edit
-<?php echo Form::open(NULL, array('method'=>'post'));?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#edit_dosen_form").validate();
+    });
+</script>
+
+<h2> Edit Data Profil Dosen</h2>
+<?php echo Form::open(NULL, array('method'=>'post', 'id' => 'edit_dosen_form'));?>
 <table>
     <tr>
         <td><?php echo 'NIP';?></td>
@@ -7,7 +13,7 @@ edit
     </tr>
     <tr>
         <td><?php echo Form::label('nama', 'Nama')?></td>
-        <td><?php echo Form::input('nama', $dosen->nama);?></td>
+        <td><?php echo Form::input('nama', $dosen->nama, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <?php
@@ -22,11 +28,11 @@ edit
             }
         ?>
         <td><?php echo Form::label('tahun_masuk', 'Tahun Masuk')?></td>
-        <td><?php echo Form::select('tahun_masuk', $tahun_masuks, $dosen->tahun_masuk);?></td>
+        <td><?php echo Form::select('tahun_masuk', $tahun_masuks, $dosen->tahun_masuk, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('tempat_lahir', 'Tempat Lahir')?></td>
-        <td><?php echo Form::input('tempat_lahir', $dosen->tempat_lahir);?></td>
+        <td><?php echo Form::input('tempat_lahir', $dosen->tempat_lahir, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('tanggal_lahir', 'Tanggal Lahir')?></td>
@@ -56,19 +62,19 @@ edit
 
         $year = array();
         $year[0] = " ";
-        for ($i = 1980; $i < date('Y'); ++$i) {
+        for ($i = 1930; $i < date('Y'); ++$i) {
             $year[$i] = $i;
         }
 
-        echo Form::select('tanggal', $date, $dosen->tanggal);
-        echo Form::select('bulan', $month, $dosen->bulan);
-        echo Form::select('tahun', $year, $dosen->tahun);
+        echo Form::select('tanggal', $date, $dosen->tanggal, array('class' => 'required'));
+        echo Form::select('bulan', $month, $dosen->bulan, array('class' => 'required'));
+        echo Form::select('tahun', $year, $dosen->tahun, array('class' => 'required'));
         ?>
         </td>
     </tr>
     <tr>
         <td><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
-        <td><?php echo Form::select('jenis_kelamin', array('-1' => '', '0' => 'Wanita', '1' => 'Pria'), $dosen->jenis_kelamin);?></td>
+        <td><?php echo Form::select('jenis_kelamin', array('-1' => '', '0' => 'Wanita', '1' => 'Pria'), $dosen->jenis_kelamin, array('class' => 'required'));?></td>
     </tr>
     <tr>
         <td><?php echo Form::label('alamat', 'Alamat')?></td>
@@ -84,7 +90,7 @@ edit
     </tr>
     <tr>
         <td><?php echo Form::label('email', 'Email');?></td>
-        <td><?php echo Form::input('email', $dosen->email);?></td>
+        <td><?php echo Form::input('email', $dosen->email, array('class' => 'email'));?></td>
     </tr>
 
 
