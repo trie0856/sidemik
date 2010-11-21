@@ -1,12 +1,14 @@
+<h2>Daftar Mahasiswa</h2>
+
 <?php echo HTML::anchor('mahasiswa/add', 'Tambah Mahasiswa', array('class' => 'button'))?>
 <br />
 <table class="sidemik_table">
     <thead>
         <tr>
             <td>No</td>
-            <td width="100">NIM</td>
-            <td width="200">Nama</td>
-            <td width="120">Aksi</td>
+            <td>NIM</td>
+            <td>Nama</td>
+            <td>Aksi</td>
         </tr>
     </thead>
     <tbody>
