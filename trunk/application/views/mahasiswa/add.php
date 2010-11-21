@@ -20,17 +20,6 @@
 <?php echo Form::open(NULL, array('method'=>'post', 'id' => 'add_mahasiswa_form', 'class' => 'cmxform'));?>
 <fieldset>
     <legend>
-        Informasi Pribadi
-    </legend>
-    <table>
-        <tr>
-        <td><?php echo Form::label('nama', 'Nama')?></td>
-        <td><?php echo Form::input('nama', NULL, array('class' => 'required'));?></td>
-    </tr>
-    </table>
-</fieldset>
-<fieldset>
-    <legend>
         Informasi Akun
     </legend>
     <table>
@@ -39,6 +28,10 @@
             <td>
             <?php echo Form::input('nim', NULL, array('class' => 'required number'));?>
             </td>
+        </tr>
+        <tr>
+            <td><?php echo Form::label('nama', 'Nama')?></td>
+            <td><?php echo Form::input('nama', NULL, array('class' => 'required'));?></td>
         </tr>
         <tr>
             <?php
@@ -62,6 +55,18 @@
         <tr>
             <td><?php echo Form::label('konfirmasi_password', 'Konfirmasi Password')?></td>
             <td><?php echo Form::password('konfirmasi_password', NULL, array('id' => 'konfirmasi_password'));?></td>
+        </tr>
+    </table>
+</fieldset>
+<br />
+<fieldset>
+    <legend>
+        Informasi Pribadi
+    </legend>
+    <table>
+        <tr>
+            <td><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
+            <td><?php echo Form::select('jenis_kelamin', array('' => '', '0' => 'Wanita', '1' => 'Pria'), NULL, array('class' => 'required')); ?></td>
         </tr>
         <tr>
             <td><?php echo Form::label('tempat_lahir', 'Tempat Lahir')?></td>
@@ -106,26 +111,21 @@
             </td>
         </tr>
         <tr>
-            <td><?php echo Form::label('jenis_kelamin', 'Jenis Kelamin')?></td>
-            <td><?php echo Form::select('jenis_kelamin', array('' => '', '0' => 'Wanita', '1' => 'Pria'), NULL, array('class' => 'required')); ?></td>
+            <td><?php echo Form::label('nama_ayah', 'Nama Ayah')?></td>
+            <td><?php echo Form::input('nama_ayah', NULL, array('class' => 'required'));?></td>
         </tr>
         <tr>
             <td><?php echo Form::label('email', 'Email');?></td>
             <td><?php echo Form::input('email', NULL, array('class' => 'email'));?></td>
         </tr>
         <tr>
-            <td><?php echo Form::label('alamat', 'Alamat')?></td>
+            <td><?php echo Form::label('alamat', 'Alamat Rumah')?></td>
             <td><?php echo Form::input('alamat', NULL, array('class' => 'required'));?></td>
         </tr>
         <tr>
             <td><?php echo Form::label('no_hp', 'Nomor Handphone')?></td>
             <td><?php echo Form::input('no_hp');?></td>
         </tr>
-        <tr>
-            <td><?php echo Form::label('nama_ayah', 'Nama Ayah')?></td>
-            <td><?php echo Form::input('nama_ayah', NULL, array('class' => 'required'));?></td>
-        </tr>
-
         <tr>
             <td><?php echo Form::label('telp_rumah', 'Telepon Rumah')?></td>
             <td><?php  echo Form::input('telp_rumah');?></td>

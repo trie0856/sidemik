@@ -20,6 +20,7 @@ class Controller_Dosen extends Controller_Website {
 
     public function action_index() {
         $this->template->title = "Dosen";
+        Request::instance()->redirect('dosen/list');
     }
 
     public function action_profil($nip) {
