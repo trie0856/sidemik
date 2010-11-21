@@ -311,6 +311,7 @@ input[type="text"], input[type="password"], select, textarea {
 }
 
 .sidemik_table td {
+    border: solid black 1px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
@@ -323,6 +324,10 @@ input[type="text"], input[type="password"], select, textarea {
 
 .gray {
     background-color: rgb(190,190,190);
+}
+
+.gray_muda {
+    background-color: rgb(236, 235, 235);
 }
 
 #login_box_inner {
