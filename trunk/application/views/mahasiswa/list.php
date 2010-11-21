@@ -6,6 +6,7 @@
             <td>No</td>
             <td width="100">NIM</td>
             <td width="200">Nama</td>
+            <td width="120">Aksi</td>
         </tr>
     </thead>
     <tbody>
@@ -16,7 +17,14 @@
             <tr <?php if ($no % 2 == 0) echo "class=gray" ?>>
                 <td><?php echo $no?></td>
                 <td><?php echo $mahasiswa->nim?></td>
-                <td><?php echo Html::anchor("/mahasiswa/profil/$mahasiswa->nim",$mahasiswa->nama);?></td>
+                <td><?php echo $mahasiswa->nama;?></td>
+                <td>
+                    <?php echo Html::anchor("/mahasiswa/profil/$mahasiswa->nim","Lihat");?>
+                    &nbsp;
+                    <?php echo Html::anchor("/mahasiswa/edit/$mahasiswa->nim","Edit");?>
+                    &nbsp;
+                    <?php echo Html::anchor("/mahasiswa/delete/$mahasiswa->nim","Hapus", array('onclick' => 'return konfirmasi_hapus()'));?>
+                </td>
             </tr>
         <?php
         ++$no;

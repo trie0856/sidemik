@@ -9,7 +9,7 @@
             <td>Tingkat</td>
             <td>Semester Buka</td>
             <td>Jumlah SKS</td>
-            <td>Keterangan</td>
+            <td>Aksi</td>
         </tr>
     </thead>
     <tbody>
@@ -36,6 +36,13 @@
                 </td>
                 <td><?php echo $matakuliah->jumlah_sks;?></td>
                 <td><?php echo Html::anchor("/matakuliah/edit/$matakuliah->kode",'Edit');?></td>
+                <td>
+                    <?php echo Html::anchor("/dosen/profil/$dosen->nip","Lihat");?>
+                    &nbsp;
+                    <?php echo Html::anchor("/dosen/edit/$dosen->nip","Edit");?>
+                    &nbsp;
+                    <?php echo Html::anchor("/dosen/delete/$dosen->nip","Hapus", array('onclick' => 'return konfirmasi_hapus()'));?>
+                </td>
             </tr>
         <?php
         ++$no;

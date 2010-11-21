@@ -22,16 +22,16 @@
 for($i = 1; $i <=$batas; ++$i) {
 $jum_sks = 0;
 ?>
-<table border="1">
+<table class="sidemik_table">
     <thead>
         <tr>
-            <th colspan="4" width="350">Semester <?php echo $i;?></th>
+            <td colspan="4" width="350">Semester <?php echo $i;?></td>
         </tr>
         <tr>
-            <th width="70">Kode</th>
-            <th width="250">Nama Mata Kuliah</th>
-            <th width="70">SKS</th>
-            <th width="70">Nilai</th>
+            <td width="70">Kode</td>
+            <td width="250">Nama Mata Kuliah</td>
+            <td width="70">SKS</td>
+            <td width="70">Nilai</td>
         </tr>
     </thead>
     <tbody>
@@ -52,7 +52,7 @@ $jum_sks = 0;
     </tbody>
     <tfoot>
         <tr>
-            <th align="left" colspan="4">IP / SKS : <?php echo Sidemik::calculateIP($mahasiswa->nim, $i) . " / " . $jum_sks ?></th>
+            <td align="left" colspan="4">IP / SKS : <?php echo Sidemik::calculateIP($mahasiswa->nim, $i) . " / " . $jum_sks ?></td>
         </tr>
     </tfoot>
 </table>

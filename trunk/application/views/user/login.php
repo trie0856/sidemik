@@ -1,12 +1,16 @@
 <div id="login_box_outer">
     <div id="login_box_inner">
 <?php echo Form::open(NULL, array('method' => 'post'))?>
-    <?php if(isset($status) && $status == FALSE) : ?>
-    <div class="error_login">
-        username dan password tidak cocok.
-    </div>
-    <?php endif;?>
     <table align="center">
+        <tr>
+            <td colspan="2">
+                <?php if(isset($status) && $status == FALSE) : ?>
+                <div class="error_login">
+                    Username dan Password tidak cocok.
+                </div>
+                <?php endif;?>
+            </td>
+        </tr>
         <tr>
             <td width="100"><b>username</b></td>
             <td><?php echo Form::input('username')?></td>
