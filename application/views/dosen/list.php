@@ -1,6 +1,12 @@
 <h2>Daftar Dosen</h2>
 
-<?php echo HTML::anchor('Dosen/add', 'Tambah Dosen', array('class' => 'button'))?>
+<?php
+$is_admin = Auth::instance()->logged_in('admin');
+
+if ($is_admin) {
+    echo HTML::anchor('Dosen/add', 'Tambah Dosen', array('class' => 'button'));
+}
+?>
 <br />
 <table class="sidemik_table">
     <thead>
@@ -23,9 +29,11 @@
                 <td>
                     <?php echo Html::anchor("/dosen/profil/$dosen->nip","Lihat");?>
                     &nbsp;
-                    <?php echo Html::anchor("/dosen/edit/$dosen->nip","Edit");?>
-                    &nbsp;
-                    <?php echo Html::anchor("/dosen/delete/$dosen->nip","Hapus", array('onclick' => 'return konfirmasi_hapus()'));?>
+                    <?php
+                    if ($is_admin) {
+                        echo Html::anchor("/dosen/delete/$dosen->nip","Hapus", array('onclick' => 'return konfirmasi_hapus()'));
+                    }
+                    ?>
                 </td>
             </tr>
         <?php
