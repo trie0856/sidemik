@@ -1,6 +1,12 @@
 <h2>Daftar Mata Kuliah</h2>
 
-<?php echo HTML::anchor('matakuliah/add', 'Tambah Matakuliah', array('class' => 'button'))?>
+<?php
+$is_admin = Auth::instance()->logged_in('admin');
+
+if ($is_admin) {
+    echo HTML::anchor('matakuliah/add', 'Tambah Matakuliah', array('class' => 'button'));
+}
+?>
 <br />
 <table class="sidemik_table">
     <thead>
@@ -40,9 +46,15 @@
                 <td>
                     <?php echo Html::anchor("/matakuliah/view/$matakuliah->kode",'Lihat');?>
                     &nbsp;
-                    <?php echo Html::anchor("/matakuliah/edit/$matakuliah->kode",'Edit');?>
-                    &nbsp;
-                    <?php echo Html::anchor("/matakuliah/delete/$matakuliah->kode",'Hapus', array('onclick' => 'return konfirmasi_hapus()'));?>
+                    <?php
+                    if ($is_admin) {
+                        echo Html::anchor("/matakuliah/edit/$matakuliah->kode",'Edit');
+                    ?>
+                        &nbsp;
+                    <?php
+                        echo Html::anchor("/matakuliah/delete/$matakuliah->kode",'Hapus', array('onclick' => 'return konfirmasi_hapus()'));
+                    }
+                    ?>
                 </td>
             </tr>
         <?php
